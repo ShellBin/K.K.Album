@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 思源黑体 CN Regular;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.jelly {
+  height: 50px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  animation: jelly 10s infinite, float 10s infinite;
+  overflow: visible;
+}
+
+.jelly::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  animation: jelly 10s infinite;
+  overflow: visible;
+}
+
+@keyframes jelly {
+
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(1, 0.99);
+  }
+
+  50% {
+    transform: scale(0.99, 1);
+  }
+
+  75% {
+    transform: scale(1.01, 0.99);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-1px) translateX(1px);
+  }
+
+  50% {
+    transform: translateY(0) translateX(0);
+  }
+
+  75% {
+    transform: translateY(1px) translateX(-1px);
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
