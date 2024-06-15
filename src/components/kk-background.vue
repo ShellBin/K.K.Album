@@ -11,7 +11,7 @@
 
 <script>
 import { usePlayerStore } from '@/stores/player'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 import wave1 from '@/assets/img/kk-background/wave1.png';
 import wave2 from '@/assets/img/kk-background/wave2.png';
@@ -22,6 +22,12 @@ export default {
   setup() {
     const playerStore = usePlayerStore();
     const isPlaying = computed(() => playerStore.isPlaying);
+
+    // Watch for changes in isPlaying and update theme color
+    watch(isPlaying, (newVal) => {
+      const themeColor = newVal ? '#5AD0F2' : '#5467e7';
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+    });
 
     return {
       isPlaying,

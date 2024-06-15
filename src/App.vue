@@ -1,10 +1,10 @@
 <template>
-  <button style="position: absolute; top: 0; left: 0; z-index: 1000;" @click="togglePlaying">{{ isPlaying ? 'Stop' : 'Start' }}</button>
   <Status class="status" />
+  <KkPlayerCore class="kk-player-core" />
   <div class="main">
     <div class="container">
       <CdAdd class="kk-cd-add" />
-      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{name: cd.name.zh, coverImg: cd.coverImg}" class="kk-cd"/>    
+      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{name: cd.name.zh, coverImg: cd.coverImg, index}" class="kk-cd"/>    
     </div>
   </div>
   <Background class="background" />
@@ -19,6 +19,7 @@ import { LIST_URL } from "@/config/config";
 
 import Background from './components/kk-background.vue'
 import Status from './components/kk-status.vue'
+import KkPlayerCore from './components/kk-player-core.vue'
 import CdAdd from './components/kk-cdAdd.vue'
 import KkCd from './components/kk-cd.vue'
 
@@ -26,6 +27,7 @@ export default {
   components: {
     Background,
     Status,
+    KkPlayerCore,
     CdAdd,
     KkCd
   },
@@ -33,11 +35,6 @@ export default {
     const playerStore = usePlayerStore();
     const isPlaying = computed(() => playerStore.isPlaying);
     const cdList = ref([]);
-
-    const togglePlaying = () => {
-      playerStore.setPlaying(!playerStore.isPlaying);
-      playerStore.setTrack('K.K.Slack-Key吉他');
-    };
 
     const fetchCdList = async () => {
       try {
@@ -54,7 +51,6 @@ export default {
 
     return {
       isPlaying,
-      togglePlaying,
       cdList
     }
   }
@@ -71,7 +67,25 @@ export default {
 }
 
 .status {
-  margin: 2vw 0 0 3vw;
+  position: absolute;
+  top: 2vw;
+  left: 3vw;
+}
+
+.kk-player-core {
+  position: absolute;
+  top: 2vw;
+  right: 3vw;
+}
+
+@media screen and (max-width: 700px) {
+  .kk-player-core {
+    position: absolute; /* 确保 position 属性存在 */
+    bottom: 6vw;
+    left: 4vw;
+    top: auto;
+    right: auto;
+  }
 }
 
 .main {
@@ -81,6 +95,12 @@ export default {
   transform: translateX(-50%);
   width: 90vw;
   height: 75vh;
+}
+
+@media (max-width: 860px) {
+  .main {
+    top: 15vw;
+  }
 }
 
 .container {

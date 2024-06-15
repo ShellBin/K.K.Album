@@ -1,11 +1,20 @@
 <template>
-  <div class="rectangle button" :class="{ 'highlight': isHighlighted, 'show-bubble': showBubble }"
+  <div class="rectangle button" :class="{
+  'highlight': isHighlighted,
+  'show-bubble': showBubble,
+  'golden-border': showBorder
+  }"
   @mousedown="highlight"
   @mouseup="deHighlight"
   @mouseleave="deHighlight"
-  @touchstart="toggleBubble"
+
   @mouseover="showBubble = true"
   @mouseout="showBubble = false"
+
+  @touchstart="highlight"
+  @touchend="deHighlight"
+
+  @click="toggleActive"
   :style="backgroundStyle">
     <span class="jelly bubble-text">{{ trackName }}</span>
   </div>
@@ -13,7 +22,7 @@
 
 <script>
 import { COVER_FILES_URL } from "@/config/config";
-import { usePlayerStore } from "@/stores/ux";
+import { usePlayerStore } from "@/stores/player";
 
 export default {
   name: 'KkCd',
@@ -25,11 +34,12 @@ export default {
   },
   data() {
     return {
-      isHighlighted: false,
-      playing: false,
-      coverImgUrl: '',
-      trackName: '',
-      showBubble: false
+      coverImgUrl: '', // 封面图片 URL
+      index: 0, // 当前 CD 的索引
+      trackName: '', // 曲目名称
+      showBubble: false, // 是否显示气泡
+      showBorder: false, // 是否显示边框
+      isHighlighted: false, // 是否高亮
     }
   },
   computed: {
@@ -38,16 +48,19 @@ export default {
     }
   },
   watch: {
+    // 监听 config 变化
     config: {
       immediate: true,
       handler(data) {
-      if (data && data.coverImg) {
-        this.trackName = data.name;
-        const encodedCoverImg = encodeURIComponent(data.coverImg).replace(/'/g, '%27');
-        this.coverImgUrl = `${COVER_FILES_URL}${encodedCoverImg}`;
+        if (data && data.coverImg) {
+          this.trackName = data.name;
+          this.index = data.index;
+          const encodedCoverImg = encodeURIComponent(data.coverImg).replace(/'/g, '%27');
+          this.coverImgUrl = `${COVER_FILES_URL}${encodedCoverImg}`;
+        }
       }
-    }
     },
+    // 监听 selectedCd 变化
     selectedCd(newCd) {
       if (newCd !== this.trackName) {
         this.showBubble = false;
@@ -61,20 +74,28 @@ export default {
     deHighlight() {
       this.isHighlighted = false;
     },
-    toggleBubble() {
+    // 切换气泡
+    toggleActive() {
       const playerStore = usePlayerStore();
-      playerStore.setSelectedCd(this.trackName);
-      this.isHighlighted = true;
+      playerStore.setSelectedIndex(this.index);
       this.showBubble = true;
     }
   },
   created() {
     const playerStore = usePlayerStore();
-    this.$watch(() => playerStore.selectedCd, (newCd) => {
-      if (newCd === this.trackName) {
-        // todo：显示金色边框
-      } else {
+    // 监听 playerStore 中 selectedIndex 的变化
+    this.$watch(() => playerStore.selectedIndex, (newIndex) => {
+      if (newIndex !== this.index) {
         this.showBubble = false;
+      }
+    });
+
+    // 监听 playerStore 中 playingIndex 的变化
+    this.$watch(() => playerStore.playingIndex, (newIndex) => {
+      if (newIndex === this.index) {
+        this.showBorder = true;
+      } else {
+        this.showBorder = false;
       }
     });
   }
@@ -140,5 +161,17 @@ export default {
 
 .rectangle:active {
   transform: scale(0.95);
+}
+
+.rectangle.golden-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: url('@/assets/img/kk-cd/content-selection.png') center/cover no-repeat;
 }
 </style>

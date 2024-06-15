@@ -4,6 +4,8 @@ import { defineStore } from 'pinia'
 export const usePlayerStore = defineStore('player', () => {
   const isPlaying = ref(false)
   const isShuffle = ref(false)
+  const selectedIndex = ref(-1)
+  const playingIndex = ref(-1)
   const trackName = ref('')
   const volume = ref(3)
 
@@ -23,9 +25,16 @@ export const usePlayerStore = defineStore('player', () => {
     isShuffle.value = state
   }
 
+  function setSelectedIndex(index) {
+    selectedIndex.value = index
+  }
+
+  function setPlayingIndex(index) {
+    playingIndex.value = index
+  }
+
   return {
-    isPlaying, trackName, volume, isShuffle,
-    
-    setPlaying, setTrack, setVolume, setShuffle
+    isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex,
+    setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex
   }
 })
