@@ -4,7 +4,7 @@
   <div class="main">
     <div class="container">
       <CdAdd class="kk-cd-add" />
-      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{name: cd.name, coverImg: cd.coverImg}" class="kk-cd"/>    
+      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{name: cd.name.zh, coverImg: cd.coverImg}" class="kk-cd"/>    
     </div>
   </div>
   <Background class="background" />
@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios';
-import { usePlayerStore } from '@/stores/index'
+import { usePlayerStore } from '@/stores/player'
 import { computed, ref, onMounted } from 'vue'
 
 import { LIST_URL } from "@/config/config";
@@ -76,7 +76,7 @@ export default {
 
 .main {
   position: absolute;
-  top: 12vh;
+  top: 10vh;
   left: 50%;
   transform: translateX(-50%);
   width: 90vw;
@@ -84,7 +84,7 @@ export default {
 }
 
 .container {
-  margin-top: 16px;
+  padding-top: 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-row-gap: 16px;
@@ -112,6 +112,12 @@ export default {
 @media (min-width: 1200px) {
   .container {
     grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>

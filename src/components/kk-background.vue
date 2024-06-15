@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { usePlayerStore } from '@/stores/index'
+import { usePlayerStore } from '@/stores/player'
 import { computed } from 'vue'
 
 import wave1 from '@/assets/img/kk-background/wave1.png';

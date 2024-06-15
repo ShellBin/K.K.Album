@@ -5,7 +5,7 @@
       <div style="display: flex; align-items: center;">
         <div class="icon-area">
           <div v-if="!isShuffle" class="note icon" :class="{ note2: !isPlaying, bounce: isBouncing }"></div>
-          <div v-if="isShuffle" class="shuffle icon"></div>
+          <div v-if="isShuffle" class="shuffle icon" :class="{ shuffle_bounce: isBouncing }"></div>
         </div>
         <div v-show="isPlaying" class="status-text fade">
           <span v-for="(char, index) in trackName" :key="index" :style="{ animationDelay: `${(index + 1) * 0.18}s` }"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { usePlayerStore } from '@/stores/index'
+import { usePlayerStore } from '@/stores/player'
 import { watch } from 'vue'
 
 import volume1 from '@/assets/img/kk-status/icon-volume-1.svg';
@@ -131,28 +131,6 @@ export default {
 </script>
 
 <style scoped>
-@keyframes bounce {
-  0% {
-    transform: scaleY(1);
-  }
-
-  20% {
-    transform: scaleY(1.3);
-  }
-
-  40% {
-    transform: translateY(-10px);
-  }
-
-  60% {
-    transform: translateY(2px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
 .kk-status-container {
   position: relative;
   overflow: visible;
@@ -165,18 +143,29 @@ export default {
   align-items: center;
   justify-content: space-between;
   margin: 6px 0 0 20px;
-  min-width: 550px;
-  width: 47vw;
-  max-width: 55vw;
+  min-width: 48vw;
+  width: 48vw;
+  max-width: 48vw;
 }
 
 .jelly {
   background-image: url('@/assets/img/kk-status/status-bg.png');
   position: absolute;
   z-index: -1;
-  min-width: 600px;
-  width: 50vw;
+  min-width: 47vw;
+  width: 51.8vw;
   max-width: 60vw;
+}
+
+@media (max-width: 700px) {
+  .kk-status-content {
+    min-width: 80vw;
+  }
+
+  .jelly {
+    min-width: 90vw;
+    width: 90vw;
+  }
 }
 
 .icon-area {
@@ -226,6 +215,60 @@ export default {
   backface-visibility: hidden;
   perspective: 1000px;
   transform: translateZ(0);
+}
+
+@keyframes bounce {
+  0% {
+    transform: scaleY(1);
+  }
+
+  20% {
+    transform: scaleY(1.3);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shuffle_bounce {
+  will-change: transform;
+  display: inline-block;
+  animation: shuffle_bounce 0.8s ease;
+  animation-fill-mode: both;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform: translateZ(0);
+}
+
+@keyframes shuffle_bounce {
+  0% {
+    transform: scaleX(1);
+  }
+
+  20% {
+    transform: scaleX(1.3);
+  }
+
+  40% {
+    transform: translateX(-10px);
+  }
+
+  60% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .fade-enter-active,

@@ -1,9 +1,19 @@
 <template>
-  <div class="rectangle button" :class="{ 'highlight': isHighlighted }" @mousedown="highlight" @mouseup="deHighlight" @mouseleave="deHighlight" :style="backgroundStyle"></div>
+  <div class="rectangle button" :class="{ 'highlight': isHighlighted, 'show-bubble': showBubble }"
+  @mousedown="highlight"
+  @mouseup="deHighlight"
+  @mouseleave="deHighlight"
+  @touchstart="toggleBubble"
+  @mouseover="showBubble = true"
+  @mouseout="showBubble = false"
+  :style="backgroundStyle">
+    <span class="bubble-text">{{ trackName }}</span>
+  </div>
 </template>
 
 <script>
 import { COVER_FILES_URL } from "@/config/config";
+import { usePlayerStore } from "@/stores/ux";
 
 export default {
   name: 'KkCd',
@@ -15,10 +25,11 @@ export default {
   },
   data() {
     return {
-      loading: false,
       isHighlighted: false,
       playing: false,
-      coverImgUrl: ''
+      coverImgUrl: '',
+      trackName: '',
+      showBubble: false
     }
   },
   computed: {
@@ -29,13 +40,17 @@ export default {
   watch: {
     config: {
       immediate: true,
-      handler(newConfig) {
-      if (newConfig && newConfig.coverImg) {
-        this.loading = true;
-        this.coverImgUrl = `${COVER_FILES_URL}${encodeURIComponent(newConfig.coverImg)}`;
-        this.loading = false;
+      handler(data) {
+        if (data && data.coverImg) {
+          this.trackName = data.name;
+          this.coverImgUrl = `${COVER_FILES_URL}${encodeURIComponent(data.coverImg)}`;
+        }
       }
-    }
+    },
+    selectedCd(newCd) {
+      if (newCd !== this.trackName) {
+        this.showBubble = false;
+      }
     }
   },
   methods: {
@@ -44,28 +59,82 @@ export default {
     },
     deHighlight() {
       this.isHighlighted = false;
+    },
+    toggleBubble() {
+      const playerStore = usePlayerStore();
+      playerStore.setSelectedCd(this.trackName);
+      this.isHighlighted = true;
+      this.showBubble = true;
     }
+  },
+  created() {
+    const playerStore = usePlayerStore();
+    this.$watch(() => playerStore.selectedCd, (newCd) => {
+      if (newCd !== this.trackName) {
+        this.showBubble = false;
+      }
+    });
   }
 }
 </script>
 
 <style scoped>
 .rectangle {
-  transform: scale(0.95);
+  position: relative;
+  transform: scale(0.98);
   border-radius: 10px;
-  transition: background-color 0.1s ease, background-image 0.1s ease, transform 0.05s ease-in-out;
+  transition: background-image 0.1s ease, transform 0.05s ease-in-out;
   transform-origin: center;
+  user-select: none;
 }
 
-.highlight {
-  background-color: rgba(255, 255, 255, 0.5);
+.rectangle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  border-radius: 10px;
 }
 
-.rectangle:hover {
+.rectangle.highlight::after {
+  opacity: 1;
+}
+
+.bubble-text {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url('@/assets/img/kk-cd/coverTitle-bubble.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  padding: 1vw 3vw;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100;
+  font-size: 1.3rem;
+}
+
+.rectangle.show-bubble .bubble-text {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .rectangle:hover {
     transform: scale(1.0);
+  }
 }
 
 .rectangle:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 </style>
