@@ -149,6 +149,7 @@ export default {
 }
 
 .jelly {
+  height: 50px;
   background-image: url('@/assets/img/kk-status/status-bg.png');
   position: absolute;
   z-index: -1;
@@ -157,7 +158,25 @@ export default {
   max-width: 60vw;
 }
 
+.status-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 24px;
+  line-height: 35px;
+  font-weight: 550;
+  margin-left: 20px;
+}
+
+.status-text span {
+  display: inline-block;
+  height: 35px;
+}
+
 @media (max-width: 700px) {
+  .status-text {
+    font-size: 18px;
+  }
+
   .kk-status-content {
     min-width: 80vw;
   }
@@ -192,18 +211,6 @@ export default {
 .shuffle {
   background-image: url('@/assets/img/kk-status/icon-shuffle.svg');
   width: 35px;
-  height: 35px;
-}
-
-.status-text {
-  font-size: 24px;
-  line-height: 35px;
-  font-weight: 550;
-  margin-left: 20px;
-}
-
-.status-text span {
-  display: inline-block;
   height: 35px;
 }
 

@@ -7,7 +7,7 @@
   @mouseover="showBubble = true"
   @mouseout="showBubble = false"
   :style="backgroundStyle">
-    <span class="bubble-text">{{ trackName }}</span>
+    <span class="jelly bubble-text">{{ trackName }}</span>
   </div>
 </template>
 
@@ -41,11 +41,12 @@ export default {
     config: {
       immediate: true,
       handler(data) {
-        if (data && data.coverImg) {
-          this.trackName = data.name;
-          this.coverImgUrl = `${COVER_FILES_URL}${encodeURIComponent(data.coverImg)}`;
-        }
+      if (data && data.coverImg) {
+        this.trackName = data.name;
+        const encodedCoverImg = encodeURIComponent(data.coverImg).replace(/'/g, '%27');
+        this.coverImgUrl = `${COVER_FILES_URL}${encodedCoverImg}`;
       }
+    }
     },
     selectedCd(newCd) {
       if (newCd !== this.trackName) {
@@ -70,7 +71,9 @@ export default {
   created() {
     const playerStore = usePlayerStore();
     this.$watch(() => playerStore.selectedCd, (newCd) => {
-      if (newCd !== this.trackName) {
+      if (newCd === this.trackName) {
+        // todo：显示金色边框
+      } else {
         this.showBubble = false;
       }
     });
@@ -81,6 +84,9 @@ export default {
 <style scoped>
 .rectangle {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: scale(0.98);
   border-radius: 10px;
   transition: background-image 0.1s ease, transform 0.05s ease-in-out;
@@ -108,8 +114,6 @@ export default {
 .bubble-text {
   position: absolute;
   top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
   background-image: url('@/assets/img/kk-cd/coverTitle-bubble.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;

@@ -8,14 +8,12 @@ body {
 }
 
 .jelly {
-  height: 50px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  animation: jelly 10s infinite, float 10s infinite;
-  overflow: visible;
-}
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    animation: jelly 10s infinite, float 10s infinite;
+  }
 
 .jelly::before {
   content: '';
@@ -27,7 +25,6 @@ body {
   background-color: inherit;
   border-radius: inherit;
   animation: jelly 10s infinite;
-  overflow: visible;
 }
 
 @keyframes jelly {

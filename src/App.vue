@@ -36,7 +36,7 @@ export default {
 
     const togglePlaying = () => {
       playerStore.setPlaying(!playerStore.isPlaying);
-      playerStore.setTrack('K.K.啦啦啦啦啦');
+      playerStore.setTrack('K.K.Slack-Key吉他');
     };
 
     const fetchCdList = async () => {
