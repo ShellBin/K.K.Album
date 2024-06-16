@@ -134,6 +134,7 @@ export default {
 
 <style scoped>
 .kk-status-container {
+  z-index: 100;
   position: relative;
   overflow: visible;
   color: #07BDAA;

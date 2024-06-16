@@ -1,15 +1,21 @@
 <template>
   <div class="kk-player-core">
     <div class="switch-group">
-      <div class="live icon button" :class="{ active: mode === 'live' }" @click="toggleMode('live')"></div>
-      <div class="music-box icon button" :class="{ active: mode === 'music_box' }" @click="toggleMode('music_box')">
+      <div class="live icon button" :class="{ active: mode === 'live', 'show-bubble': showBubble === 'live', }" @mouseover="showBubble = 'live'" @mouseout="showBubble = ''" @click="toggleMode('live')">
+        <div class="bubble-text">K.K.演唱</div>
       </div>
-      <div class="aircheck icon button" :class="{ active: mode === 'aircheck' }" @click="toggleMode('aircheck')">
+      <div class="music-box icon button" :class="{ active: mode === 'music_box', 'show-bubble': showBubble === 'music_box', }" @mouseover="showBubble = 'music_box'" @mouseout="showBubble = ''" @click="toggleMode('music_box')">
+        <div class="bubble-text">音乐盒版本</div>
+      </div>
+      <div class="aircheck icon button" :class="{ active: mode === 'aircheck', 'show-bubble': showBubble === 'aircheck', }" @mouseover="showBubble = 'aircheck'" @mouseout="showBubble = ''" @click="toggleMode('aircheck')">
+        <div class="bubble-text">CD版本</div>
       </div>
     </div>
     <div class="about-group">
       <div></div>
-      <div class="about active icon button"></div>
+      <div class="about active icon button" :class="{ 'show-bubble': showBubble === 'about', }" @mouseover="showBubble = 'about'" @mouseout="showBubble = ''">
+        <div class="bubble-text">关于</div>
+      </div>
     </div>
   </div>
 </template>
@@ -28,12 +34,14 @@ export default {
       mode: localStorage.getItem('mode') || 'live',
       // 下载的完整列表
       listData: [],
-      player: new Player()
+      player: new Player(),
+      showBubble: ''
     };
   },
 
   mounted() {
     this.fetchPlayList();
+    this.createRandomGroup();
   },
 
   created() {
@@ -79,6 +87,19 @@ export default {
           coverImg: item.coverImg
         }));
       playerStore.setPlayList(filteredList);
+    },
+
+    // 创建四个互相不一样的随机数，要求范围在0-3
+    createRandomGroup() {
+      const playerStore = usePlayerStore();
+      const randomGroup = [];
+      while (randomGroup.length < 4) {
+        const randomNum = Math.floor(Math.random() * 4);
+        if (!randomGroup.includes(randomNum)) {
+          randomGroup.push(randomNum);
+        }
+      }
+      playerStore.setRandomGroup(randomGroup);
     },
 
     // 主播放控制
@@ -152,11 +173,26 @@ export default {
 }
 
 .icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   background-size: cover;
   background-repeat: no-repeat;
   transition: transform 0.2s ease;
+}
+
+.bubble-text {
+  background-image: url('@/assets/img/public/bubble.png');
+  top: -28px;
+  font-size: 1.2rem;
+  padding: 0.3vw 0.5vw;
+}
+
+.icon.show-bubble .bubble-text {
+  opacity: 1;
 }
 
 .icon:active {

@@ -1,19 +1,26 @@
 body {
   margin: 0;
   font-family: 思源黑体 CN Regular;
+  /* normal cursor */
+  cursor: url('@/assets/img/public/cursor.png') 5 5, pointer;
+}
+
+body:active {
+  cursor: url('@/assets/img/public/cursor-poke.png') 5 5, pointer; /* 按下光标 */
 }
 
 .button {
-  cursor: pointer;
+  /* hover cursor */
+  cursor: url('@/assets/img/public/cursor.png')5 5, pointer;
 }
 
 .jelly {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    animation: jelly 10s infinite, float 10s infinite;
-  }
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  animation: jelly 10s infinite, float 10s infinite;
+}
 
 .jelly::before {
   content: '';
@@ -83,4 +90,17 @@ body {
 
 .button-click-animation {
   animation: button-click 0.2s ease;
+}
+
+.bubble-text {
+  position: absolute;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 200;
 }

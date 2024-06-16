@@ -67,7 +67,8 @@ export default {
         const coverImg = data.coverImg;
         if (!coverImg) {
           this.isHiddenAlbum = true;
-          const randomIndex = Math.floor(Math.random() * 4);
+          const playerStore = usePlayerStore();
+          const randomIndex = playerStore.shiftRandomIndex();
           this.coverImgUrl = [defaultCover1, defaultCover2, defaultCover3, defaultCover4][randomIndex];
         } else {
           const encodedCoverImg = encodeURIComponent(coverImg).replace(/'/g, '%27');
@@ -167,20 +168,10 @@ export default {
 }
 
 .bubble-text {
-  position: absolute;
+  background-image: url('@/assets/img/public/bubble.png');
   top: -20px;
-  background-image: url('@/assets/img/kk-cd/coverTitle-bubble.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-  padding: 1vw 3vw;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 100;
   font-size: 1.3rem;
+  padding: 1vw 3vw;
 }
 
 .rectangle.show-bubble .bubble-text {

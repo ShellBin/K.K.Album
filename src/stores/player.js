@@ -1,6 +1,13 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
+// 通用的 setter 方法
+function createSetter(refValue) {
+  return (value) => {
+    refValue.value = value
+  }
+}
+
 export const usePlayerStore = defineStore('player', () => {
   const lang = ref('zh')
   const isPlaying = ref(false)
@@ -10,41 +17,27 @@ export const usePlayerStore = defineStore('player', () => {
   const playingIndex = ref(-1)
   const trackName = ref('')
   const volume = ref(localStorage.getItem('volume') || 3)
+  const randomGroup = ref([])
+  const scrollPercent = ref(0)
 
-  function setLang(lang) {
-    lang.value = lang
-  }
+  // 使用通用的 setter 方法
+  const setLang = createSetter(lang)
+  const setPlaying = createSetter(isPlaying)
+  const setShuffle = createSetter(isShuffle)
+  const setPlayList = createSetter(playList)
+  const setSelectedIndex = createSetter(selectedIndex)
+  const setPlayingIndex = createSetter(playingIndex)
+  const setTrack = createSetter(trackName)
+  const setVolume = createSetter(volume)
+  const setRandomGroup = createSetter(randomGroup)
+  const setScrollPercent = createSetter(scrollPercent)
 
-  function setPlaying(state) {
-    isPlaying.value = state
-  }
-
-  function setTrack(track) {
-    trackName.value = track
-  }
-
-  function setVolume(vol) {
-    volume.value = vol
-  }
-
-  function setShuffle(state) {
-    isShuffle.value = state
-  }
-
-  function setPlayList(list) {
-    playList.value = list
-  }
-
-  function setSelectedIndex(index) {
-    selectedIndex.value = index
-  }
-
-  function setPlayingIndex(index) {
-    playingIndex.value = index
+  function shiftRandomIndex() {
+    return randomGroup.value.shift()
   }
 
   return {
-    lang, isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex, playList,
-    setLang, setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex, setPlayList
+    lang, isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex, playList, randomGroup, scrollPercent,
+    setLang, setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex, setPlayList, setRandomGroup, shiftRandomIndex, setScrollPercent
   }
 })
