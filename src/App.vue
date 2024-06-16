@@ -4,18 +4,17 @@
   <div class="main">
     <div class="container">
       <CdAdd class="kk-cd-add" />
-      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{name: cd.name.zh, coverImg: cd.coverImg, index}" class="kk-cd"/>    
+      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name.zh, coverImg: cd.coverImg, index }"
+        class="kk-cd" />
     </div>
   </div>
   <Background class="background" />
 </template>
 
 <script>
-import axios from 'axios';
-import { usePlayerStore } from '@/stores/player'
-import { computed, ref, onMounted } from 'vue'
 
-import { LIST_URL } from "@/config/config";
+import { usePlayerStore } from '@/stores/player'
+import { computed } from 'vue'
 
 import Background from './components/kk-background.vue'
 import Status from './components/kk-status.vue'
@@ -34,20 +33,7 @@ export default {
   setup() {
     const playerStore = usePlayerStore();
     const isPlaying = computed(() => playerStore.isPlaying);
-    const cdList = ref([]);
-
-    const fetchCdList = async () => {
-      try {
-        const response = await axios.get(LIST_URL);
-        cdList.value = response.data;
-      } catch (error) {
-        console.error('Error fetching CD list:', error);
-      }
-    };
-
-    onMounted(() => {
-      fetchCdList();
-    });
+    const cdList = computed(() => playerStore.playList);
 
     return {
       isPlaying,
@@ -80,7 +66,7 @@ export default {
 
 @media screen and (max-width: 700px) {
   .kk-player-core {
-    position: absolute; /* 确保 position 属性存在 */
+    position: absolute;
     bottom: 6vw;
     left: 4vw;
     top: auto;
@@ -123,7 +109,8 @@ export default {
   display: none;
 }
 
-.kk-cd-add, .kk-cd {
+.kk-cd-add,
+.kk-cd {
   color: white;
   width: 100%;
   padding-top: 100%;

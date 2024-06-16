@@ -25,10 +25,10 @@
 import { usePlayerStore } from '@/stores/player'
 import { watch } from 'vue'
 
-import volume1 from '@/assets/img/kk-status/icon-volume-1.svg';
-import volume2 from '@/assets/img/kk-status/icon-volume-2.svg';
-import volume3 from '@/assets/img/kk-status/icon-volume-3.svg';
-import volume4 from '@/assets/img/kk-status/icon-volume-4.svg';
+import volume0 from '@/assets/img/kk-status/icon-volume-1.svg';
+import volume1 from '@/assets/img/kk-status/icon-volume-2.svg';
+import volume2 from '@/assets/img/kk-status/icon-volume-3.svg';
+import volume3 from '@/assets/img/kk-status/icon-volume-4.svg';
 
 export default {
   name: 'KK-Status',
@@ -38,8 +38,8 @@ export default {
       isShuffle: false,
       trackName: '',
       isBouncing: false,
-      volume: 4,
-      volumeIcons: [ volume1, volume2, volume3, volume4 ],
+      volume: localStorage.getItem('volume') || 3,
+      volumeIcons: [ volume0, volume1, volume2, volume3 ],
       buttonClickClass: ''
     }
   },
@@ -47,25 +47,25 @@ export default {
     volumeDownClass() {
       return {
         'icon': true,
-        'icon-down-actived': this.volume > 1,
-        'icon-down-disable': this.volume <= 1
+        'icon-down-actived': this.volume > 0,
+        'icon-down-disable': this.volume <= 0
       }
     },
     volumeUpClass() {
       return {
         'icon': true,
-        'icon-add-actived': this.volume < 4,
-        'icon-add-disable': this.volume >= 4
+        'icon-add-actived': this.volume < 3,
+        'icon-add-disable': this.volume >= 3
       }
     },
     volumeIconStyle() {
       return {
-        backgroundImage: `url(${this.volumeIcons[this.volume - 1]})`
+        backgroundImage: `url(${this.volumeIcons[this.volume]})`
       }
     }
   },
   mounted() {
-    const playerStore = usePlayerStore()
+    const playerStore = usePlayerStore();
     // 监听当前播放歌曲变化
     watch(() => playerStore.trackName, (val) => {
       this.trackName = val
@@ -99,24 +99,26 @@ export default {
     },
     handleIncreaseVolume() {
       this.increaseVolume();
-      this.triggerButtonClickAnimation('increase');
+      this.triggerVolumeClick('increase');
     },
     handleDecreaseVolume() {
       this.decreaseVolume();
-      this.triggerButtonClickAnimation('decrease');
+      this.triggerVolumeClick('decrease');
     },
     increaseVolume() {
-      if (this.volume < 4) {
+      if (this.volume < 3) {
         this.volume++;
       }
     },
     decreaseVolume() {
-      if (this.volume > 1) {
+      if (this.volume > 0) {
         this.volume--;
       }
     },
-    triggerButtonClickAnimation(type) {
-      usePlayerStore().setVolume(this.volume);
+    triggerVolumeClick(type) {
+      const playerStore = usePlayerStore();
+      localStorage.setItem('volume', this.volume);
+      playerStore.setVolume(this.volume);
       if (type === 'increase') {
         this.buttonClickClass = 'button-click-animation-increase';
       } else {
@@ -318,21 +320,5 @@ export default {
 
 .icon-add-disable {
   background-image: url('@/assets/img/kk-status/icon-add-disable.svg');
-}
-
-@keyframes button-click {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.button-click-animation {
-  animation: button-click 0.2s ease;
 }
 </style>

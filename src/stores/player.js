@@ -2,12 +2,18 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const usePlayerStore = defineStore('player', () => {
+  const lang = ref('zh')
   const isPlaying = ref(false)
   const isShuffle = ref(false)
+  const playList = ref([])
   const selectedIndex = ref(-1)
   const playingIndex = ref(-1)
   const trackName = ref('')
-  const volume = ref(3)
+  const volume = ref(localStorage.getItem('volume') || 3)
+
+  function setLang(lang) {
+    lang.value = lang
+  }
 
   function setPlaying(state) {
     isPlaying.value = state
@@ -25,6 +31,10 @@ export const usePlayerStore = defineStore('player', () => {
     isShuffle.value = state
   }
 
+  function setPlayList(list) {
+    playList.value = list
+  }
+
   function setSelectedIndex(index) {
     selectedIndex.value = index
   }
@@ -34,7 +44,7 @@ export const usePlayerStore = defineStore('player', () => {
   }
 
   return {
-    isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex,
-    setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex
+    lang, isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex, playList,
+    setLang, setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex, setPlayList
   }
 })

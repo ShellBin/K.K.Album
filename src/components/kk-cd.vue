@@ -16,6 +16,10 @@
 
   @click="toggleActive"
   :style="backgroundStyle">
+    <div v-if="isHiddenAlbum" class="hidden-album">
+      <span class="hidden-album-title">隐藏曲目</span>
+      <span class="hidden-album-desc">{{ trackName }}</span>
+    </div>
     <span class="jelly bubble-text">{{ trackName }}</span>
   </div>
 </template>
@@ -23,6 +27,10 @@
 <script>
 import { COVER_FILES_URL } from "@/config/config";
 import { usePlayerStore } from "@/stores/player";
+import defaultCover1 from "@/assets/img/kk-cd/default1.png";
+import defaultCover2 from "@/assets/img/kk-cd/default2.png";
+import defaultCover3 from "@/assets/img/kk-cd/default3.png";
+import defaultCover4 from "@/assets/img/kk-cd/default4.png";
 
 export default {
   name: 'KkCd',
@@ -40,6 +48,7 @@ export default {
       showBubble: false, // 是否显示气泡
       showBorder: false, // 是否显示边框
       isHighlighted: false, // 是否高亮
+      isHiddenAlbum: false, // 是否为隐藏专辑
     }
   },
   computed: {
@@ -48,25 +57,32 @@ export default {
     }
   },
   watch: {
-    // 监听 config 变化
-    config: {
-      immediate: true,
-      handler(data) {
-        if (data && data.coverImg) {
-          this.trackName = data.name;
-          this.index = data.index;
-          const encodedCoverImg = encodeURIComponent(data.coverImg).replace(/'/g, '%27');
+  // 监听 config 变化
+  config: {
+    immediate: true,
+    handler(data) {
+      if (data) {
+        this.trackName = data.name;
+        this.index = data.index;
+        const coverImg = data.coverImg;
+        if (!coverImg) {
+          this.isHiddenAlbum = true;
+          const randomIndex = Math.floor(Math.random() * 4);
+          this.coverImgUrl = [defaultCover1, defaultCover2, defaultCover3, defaultCover4][randomIndex];
+        } else {
+          const encodedCoverImg = encodeURIComponent(coverImg).replace(/'/g, '%27');
           this.coverImgUrl = `${COVER_FILES_URL}${encodedCoverImg}`;
         }
       }
-    },
-    // 监听 selectedCd 变化
-    selectedCd(newCd) {
-      if (newCd !== this.trackName) {
-        this.showBubble = false;
-      }
     }
   },
+  // 监听 selectedCd 变化
+  selectedCd(newCd) {
+    if (newCd !== this.trackName) {
+      this.showBubble = false;
+    }
+  }
+},
   methods: {
     highlight() {
       this.isHighlighted = true;
@@ -77,7 +93,11 @@ export default {
     // 切换气泡
     toggleActive() {
       const playerStore = usePlayerStore();
-      playerStore.setSelectedIndex(this.index);
+      if(playerStore.selectedIndex === this.index) {
+        playerStore.setSelectedIndex(-1);
+      } else {
+        playerStore.setSelectedIndex(this.index);
+      }
       this.showBubble = true;
     }
   },
@@ -130,6 +150,20 @@ export default {
 
 .rectangle.highlight::after {
   opacity: 1;
+}
+
+.hidden-album .hidden-album-title {
+  position: absolute;
+  bottom: 48px;
+  left: 20px;
+  font-size: 36px;
+}
+
+.hidden-album .hidden-album-desc {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 18px;
 }
 
 .bubble-text {
