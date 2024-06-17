@@ -113,6 +113,12 @@ export default {
       // 仅允许单例
       if (!this.player) {
         this.player = new Player();
+        this.player.addEventListener('audioEnded', () => {
+          if (playerStore.isShuffle) {
+            const randomIndex = Math.floor(Math.random() * playerStore.playList.length);
+            playerStore.setSelectedIndex(randomIndex);
+          }
+        });
       }
       this.player.setVolume(volumeMapping[localStorage.getItem('volume')]);
       if (newIndex !== -1) {

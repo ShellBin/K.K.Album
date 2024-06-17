@@ -3,14 +3,15 @@ import axios from 'axios';
 /**
  * Player 类，用于处理带有循环功能的音频播放。
  */
-class Player {
+class Player extends EventTarget {
   /**
    * 创建 Player 的实例。
    */
   constructor() {
+    super();
     this.audioContext = new AudioContext();
     this.audioBuffer = null;
-    this.sourceNode = null;
+    this.currentSourceNode = null;
     this.loopStart = 0;
     this.loopEnd = 0;
     this.status = 'stopped';
@@ -30,7 +31,6 @@ class Player {
    */
   async load(url, loopStart, loopEnd) {
     this.audioBuffer = null;
-    this.sourceNode = null;
     this.loopStart = parseFloat(loopStart) || 0;
     try {
       const response = await axios.get(url, { responseType: 'arraybuffer' });
@@ -48,34 +48,29 @@ class Player {
    * 播放音频。
    */
   play() {
-    if (this.sourceNode) {
-      this.sourceNode.stop();
-    }
-
-    this.sourceNode = this.audioContext.createBufferSource();
-    this.sourceNode.buffer = this.audioBuffer;
-    this.sourceNode.connect(this.gainNode);
-
-    this.sourceNode.start(0, this.isFirstPlay ? 0 : this.loopStart);
-
-    this.sourceNode.onended = (event) => {
-      this.handleAudioEnded(event)
-    }
+    const sourceNode = this.audioContext.createBufferSource();
+    sourceNode.buffer = this.audioBuffer;
+    sourceNode.connect(this.gainNode);
+  
+    sourceNode.start(0, this.isFirstPlay ? 0 : this.loopStart);
+  
+    sourceNode.onended = (event) => {
+      this.handleAudioEnded(event, sourceNode);
+    };
     this.status = 'playing';
     this.stopedByUser = false;
+  
+    // 保存当前的 sourceNode 引用
+    this.currentSourceNode = sourceNode;
   }
 
   /**
    * 处理音频结束事件，并在必要时循环音频。
    */
   handleAudioEnded() {
-    if (this.onAudioEnded) {
-      const shouldContinue = this.onAudioEnded(this);
-      if (!shouldContinue) {
-        this.stop();
-      }
-    } else if (!this.stopedByUser) {
+    if (!this.stopedByUser) {
       this.isFirstPlay = false; // 第一次播放后设置为 false
+      this.dispatchEvent(new Event('audioEnded'));
       this.play();
     }
   }
@@ -83,9 +78,10 @@ class Player {
   /**
    * 暂停音频。
    */
-  stop() {
-    if (this.sourceNode) {
-      this.sourceNode.stop();
+  stop(sourceNode = null) {
+    const targetSourceNode = sourceNode || this.currentSourceNode;
+    if (targetSourceNode) {
+      targetSourceNode.stop();
       this.status = 'stoped';
       this.isFirstPlay = true;
       this.stopedByUser = true;
@@ -98,14 +94,6 @@ class Player {
    */
   setVolume(volume) {
     this.gainNode.gain.value = Math.pow(volume, 2);
-  }
-
-  /**
-   * 设置音频结束时的回调函数。
-   * @param {function} callback - 回调函数，接收 Player 实例作为参数。
-   */
-  setOnAudioEnded(callback) {
-    this.onAudioEnded = callback;
   }
 
   /**
