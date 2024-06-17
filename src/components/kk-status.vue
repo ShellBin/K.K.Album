@@ -66,6 +66,7 @@ export default {
   },
   mounted() {
     const playerStore = usePlayerStore();
+    this.setDefaultVolume();
     // 监听当前播放歌曲变化
     watch(() => playerStore.trackName, (val) => {
       this.trackName = val
@@ -114,6 +115,10 @@ export default {
       if (this.volume > 0) {
         this.volume--;
       }
+    },
+    setDefaultVolume() {
+      this.volume = localStorage.getItem('volume') || 3;
+      localStorage.setItem('volume', this.volume);
     },
     triggerVolumeClick(type) {
       const playerStore = usePlayerStore();

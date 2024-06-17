@@ -14,7 +14,10 @@ class Player {
     this.loopStart = 0;
     this.loopEnd = 0;
     this.status = 'stopped';
-    this.isFirstPlay = true; // 标志是否为第一次播放
+    this.isFirstPlay = true;
+    this.stopedByUser = false;
+    this.gainNode = this.audioContext.createGain();
+    this.gainNode.connect(this.audioContext.destination);
   }
 
   /**
@@ -26,17 +29,19 @@ class Player {
    * @throws {Error} - 如果音频加载失败则抛出错误。
    */
   async load(url, loopStart, loopEnd) {
+    this.audioBuffer = null;
+    this.sourceNode = null;
     this.loopStart = parseFloat(loopStart) || 0;
-    this.loopEnd = parseFloat(loopEnd) || 0;
-
     try {
       const response = await axios.get(url, { responseType: 'arraybuffer' });
       this.audioBuffer = await this.audioContext.decodeAudioData(response.data);
-      this.play();
+      this.loopEnd = parseFloat(loopEnd) || this.audioBuffer.duration;
     } catch (error) {
       console.error('Error fetching audio:', error);
       throw error;
     }
+    this.status = 'stopped';
+    this.isFirstPlay = true;
   }
 
   /**
@@ -49,34 +54,28 @@ class Player {
 
     this.sourceNode = this.audioContext.createBufferSource();
     this.sourceNode.buffer = this.audioBuffer;
-    this.sourceNode.connect(this.audioContext.destination);
-
-    if (this.loopStart > 0 || this.loopEnd > 0) {
-      this.sourceNode.loop = !this.isFirstPlay;
-      this.sourceNode.loopStart = this.loopStart;
-      this.sourceNode.loopEnd = this.loopEnd;
-    } else {
-      this.sourceNode.loop = true;
-    }
+    this.sourceNode.connect(this.gainNode);
 
     this.sourceNode.start(0, this.isFirstPlay ? 0 : this.loopStart);
-    this.sourceNode.addEventListener('ended', this.handleAudioEnded.bind(this));
+
+    this.sourceNode.onended = (event) => {
+      this.handleAudioEnded(event)
+    }
     this.status = 'playing';
+    this.stopedByUser = false;
   }
 
   /**
    * 处理音频结束事件，并在必要时循环音频。
    */
   handleAudioEnded() {
-    console.log(1, this.isFirstPlay)
-    console.log('handleAudioEnded', this.sourceNode.loop, this.loopStart, this.loopEnd)
-    this.isFirstPlay = false; // 第一次播放后设置为 false
-    if (this.sourceNode.loop) {
-      // If looping is enabled, restart the playback
-      this.play();
-    } else if (this.loopStart >= 0 && this.loopEnd <= 0) {
-      // If no loop points are set, restart the playback
-      console.log(2, this.isFirstPlay);
+    if (this.onAudioEnded) {
+      const shouldContinue = this.onAudioEnded(this);
+      if (!shouldContinue) {
+        this.stop();
+      }
+    } else if (!this.stopedByUser) {
+      this.isFirstPlay = false; // 第一次播放后设置为 false
       this.play();
     }
   }
@@ -84,11 +83,12 @@ class Player {
   /**
    * 暂停音频。
    */
-  pause() {
+  stop() {
     if (this.sourceNode) {
       this.sourceNode.stop();
-      this.status = 'paused';
+      this.status = 'stoped';
       this.isFirstPlay = true;
+      this.stopedByUser = true;
     }
   }
 
@@ -97,12 +97,20 @@ class Player {
    * @param {number} volume - 音量级别（0 到 1），按指数调整。
    */
   setVolume(volume) {
-    this.audioContext.destination.gain.value = Math.pow(volume, 2);
+    this.gainNode.gain.value = Math.pow(volume, 2);
+  }
+
+  /**
+   * 设置音频结束时的回调函数。
+   * @param {function} callback - 回调函数，接收 Player 实例作为参数。
+   */
+  setOnAudioEnded(callback) {
+    this.onAudioEnded = callback;
   }
 
   /**
    * 获取播放器的当前状态。
-   * @returns {string} - 当前状态："playing"、"paused" 或 "stopped"。
+   * @returns {string} - 当前状态："playing"、"stopd" 或 "stopped"。
    */
   getStatus() {
     return this.status;

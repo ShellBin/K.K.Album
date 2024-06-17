@@ -28,13 +28,15 @@ import { textLoading, textErrorFetchingAudio } from '@/utils/i18n';
 
 import { LIST_URL, SONGS_FILES_URL } from "@/config/config";
 
+const volumeMapping = [0, 0.33, 0.66, 1];
+
 export default {
   data() {
     return {
       mode: localStorage.getItem('mode') || 'live',
       // 下载的完整列表
       listData: [],
-      player: new Player(),
+      player: null,
       showBubble: ''
     };
   },
@@ -53,7 +55,6 @@ export default {
 
     // 监听 playerStore 中 volume 的变化,响应音量变化
     this.$watch(() => playerStore.volume, (newVolume) => {
-      const volumeMapping = [0, 0.33, 0.66, 1];
       this.player.setVolume(volumeMapping[newVolume]);
     });
   },
@@ -64,7 +65,10 @@ export default {
       this.mode = mode;
       localStorage.setItem('mode', mode);
       this.updateAlbumList();
-      this.pausePlayer();
+      this.stopPlayer();
+      if (mode === 'live') {
+        this.createRandomGroup();
+      }
     },
 
     // 获取播放总列表
@@ -106,9 +110,14 @@ export default {
     mainPlayerControl(newIndex) {
       const playerStore = usePlayerStore();
       const lang = playerStore.lang;
+      // 仅允许单例
+      if (!this.player) {
+        this.player = new Player();
+      }
+      this.player.setVolume(volumeMapping[localStorage.getItem('volume')]);
       if (newIndex !== -1) {
         // 播放控制逻辑
-        this.player.pause();
+        this.player.stop();
         playerStore.setPlaying(true);
         playerStore.setTrack(textLoading(lang));
         const url = `${SONGS_FILES_URL}/${this.listData[newIndex].song[this.mode].file}`;
@@ -118,8 +127,8 @@ export default {
         )
         .then(() => {
           playerStore.setTrack(this.listData[newIndex].name[playerStore.lang]);
-          this.player.play();
           playerStore.setPlayingIndex(newIndex);
+          this.player.play();
         })
         .catch((error) => {
           playerStore.setPlaying(false);
@@ -128,14 +137,14 @@ export default {
           console.error('Error fetching audio:', error);
         });
       } else {
-        this.pausePlayer();
+        this.stopPlayer();
       }
     },
 
     // 中断播放
-    pausePlayer() {
+    stopPlayer() {
       const playerStore = usePlayerStore();
-      this.player.pause();
+      this.player.stop();
       playerStore.setPlaying(false);
       playerStore.setPlayingIndex(-1);
       playerStore.setSelectedIndex(-1);

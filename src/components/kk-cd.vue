@@ -155,16 +155,22 @@ export default {
 
 .hidden-album .hidden-album-title {
   position: absolute;
-  bottom: 48px;
-  left: 20px;
-  font-size: 36px;
+  bottom: 5vw;
+  left: 1.5vw;
+  font-size: calc(1em + 2vw);
+}
+
+@media screen and (max-width: 700px) {
+  .hidden-album .hidden-album-title {
+    bottom: 8vw;
+  }
 }
 
 .hidden-album .hidden-album-desc {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 18px;
+  bottom: 1.8vw;
+  left: 1.5vw;
+  font-size: 1em;
 }
 
 .bubble-text {

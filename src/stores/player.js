@@ -16,7 +16,7 @@ export const usePlayerStore = defineStore('player', () => {
   const selectedIndex = ref(-1)
   const playingIndex = ref(-1)
   const trackName = ref('')
-  const volume = ref(localStorage.getItem('volume') || 3)
+  const volume = ref(0)
   const randomGroup = ref([])
   const scrollPercent = ref(0)
 
