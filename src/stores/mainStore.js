@@ -8,7 +8,7 @@ function createSetter(refValue) {
   }
 }
 
-export const usePlayerStore = defineStore('player', () => {
+export const useMainStore = defineStore('main', () => {
   const lang = ref('zh')
   const isPlaying = ref(false)
   const isShuffle = ref(false)

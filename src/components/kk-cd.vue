@@ -26,7 +26,7 @@
 
 <script>
 import { COVER_FILES_URL } from "@/config/config";
-import { usePlayerStore } from "@/stores/player";
+import { useMainStore } from "@/stores/mainStore";
 import defaultCover1 from "@/assets/img/kk-cd/default1.png";
 import defaultCover2 from "@/assets/img/kk-cd/default2.png";
 import defaultCover3 from "@/assets/img/kk-cd/default3.png";
@@ -67,7 +67,7 @@ export default {
         const coverImg = data.coverImg;
         if (!coverImg) {
           this.isHiddenAlbum = true;
-          const playerStore = usePlayerStore();
+          const playerStore = useMainStore();
           const randomIndex = playerStore.shiftRandomIndex();
           this.coverImgUrl = [defaultCover1, defaultCover2, defaultCover3, defaultCover4][randomIndex];
         } else {
@@ -93,7 +93,7 @@ export default {
     },
     // 切换气泡
     toggleActive() {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       if(playerStore.selectedIndex === this.index) {
         playerStore.setSelectedIndex(-1);
       } else {
@@ -103,7 +103,7 @@ export default {
     }
   },
   created() {
-    const playerStore = usePlayerStore();
+    const playerStore = useMainStore();
     // 监听 playerStore 中 selectedIndex 的变化
     this.$watch(() => playerStore.selectedIndex, (newIndex) => {
       if (newIndex !== this.index) {

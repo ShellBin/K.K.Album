@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { usePlayerStore } from '@/stores/player'
+import { useMainStore } from '@/stores/mainStore'
 import { computed, watch } from 'vue'
 
 import wave1 from '@/assets/img/kk-background/wave1.png';
@@ -20,7 +20,7 @@ import wave3 from '@/assets/img/kk-background/wave3.png';
 export default {
   name: 'KK-Background',
   setup() {
-    const playerStore = usePlayerStore();
+    const playerStore = useMainStore();
     const isPlaying = computed(() => playerStore.isPlaying);
 
     // Watch for changes in isPlaying and update theme color

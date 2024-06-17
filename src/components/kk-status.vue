@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { usePlayerStore } from '@/stores/player'
+import { useMainStore } from '@/stores/mainStore'
 import { watch } from 'vue'
 
 import volume0 from '@/assets/img/kk-status/icon-volume-1.svg';
@@ -65,7 +65,7 @@ export default {
     }
   },
   mounted() {
-    const playerStore = usePlayerStore();
+    const playerStore = useMainStore();
     this.setDefaultVolume();
     // 监听当前播放歌曲变化
     watch(() => playerStore.trackName, (val) => {
@@ -121,7 +121,7 @@ export default {
       localStorage.setItem('volume', this.volume);
     },
     triggerVolumeClick(type) {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       localStorage.setItem('volume', this.volume);
       playerStore.setVolume(this.volume);
       if (type === 'increase') {

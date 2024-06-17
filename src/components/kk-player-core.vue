@@ -23,7 +23,7 @@
 <script>
 import axios from 'axios';
 import Player from '@/utils/player';
-import { usePlayerStore } from '@/stores/player';
+import { useMainStore } from '@/stores/mainStore';
 import { textLoading, textErrorFetchingAudio } from '@/utils/i18n';
 
 import { LIST_URL, SONGS_FILES_URL } from "@/config/config";
@@ -47,7 +47,7 @@ export default {
   },
 
   created() {
-    const playerStore = usePlayerStore();
+    const playerStore = useMainStore();
     // 监听 playerStore 中 selectedIndex 的变化,响应切歌
     this.$watch(() => playerStore.selectedIndex, (newIndex) => {
       this.mainPlayerControl(newIndex);
@@ -83,7 +83,7 @@ export default {
 
     // 更新可用的播放列表
     updateAlbumList() {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       const filteredList = this.listData
         .filter(item => item.song[this.mode])
         .map(item => ({
@@ -95,7 +95,7 @@ export default {
 
     // 创建四个互相不一样的随机数，要求范围在0-3
     createRandomGroup() {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       const randomGroup = [];
       while (randomGroup.length < 4) {
         const randomNum = Math.floor(Math.random() * 4);
@@ -108,7 +108,7 @@ export default {
 
     // 主播放控制
     mainPlayerControl(newIndex) {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       const lang = playerStore.lang;
       // 仅允许单例
       if (!this.player) {
@@ -149,7 +149,7 @@ export default {
 
     // 中断播放
     stopPlayer() {
-      const playerStore = usePlayerStore();
+      const playerStore = useMainStore();
       this.player.stop();
       playerStore.setPlaying(false);
       playerStore.setPlayingIndex(-1);

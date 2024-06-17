@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { usePlayerStore } from '@/stores/player'
+import { useMainStore } from '@/stores/mainStore'
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 
 import Background from './components/kk-background.vue'
@@ -35,7 +35,7 @@ export default {
     KkScrollbar
   },
   setup() {
-    const playerStore = usePlayerStore();
+    const playerStore = useMainStore();
     const isPlaying = computed(() => playerStore.isPlaying);
     const cdList = computed(() => playerStore.playList);
     const container = ref(null);

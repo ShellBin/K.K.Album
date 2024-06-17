@@ -8,9 +8,9 @@
 
 <script setup>
 import { computed } from 'vue';
-import { usePlayerStore } from '@/stores/player';
+import { useMainStore } from '@/stores/mainStore';
 
-const playerStore = usePlayerStore();
+const playerStore = useMainStore();
 
 const scrollPercent = computed(() => playerStore.scrollPercent);
 const clampedScrollPercent = computed(() => {
