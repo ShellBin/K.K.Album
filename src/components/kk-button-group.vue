@@ -1,5 +1,5 @@
 <template>
-  <div class="kk-button-group">
+  <div v-if="ready" class="kk-button-group">
     <div class="kk-button button" @click="toggleShuffle">
       <div class="kk-button-icon">A</div>
       <div v-if="!isShuffle" class="kk-button-text">{{ getText('shuffle', lang) }}</div>
@@ -23,6 +23,10 @@ const isShuffle = computed(() => {
 
 const lang = computed(() => {
   return useMainStore().lang;
+});
+
+const ready = computed(() => {
+  return useMainStore().playList.length > 0;
 });
 
 const toggleShuffle = () => {
