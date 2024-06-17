@@ -13,9 +13,13 @@
         </div>
       </div>
       <div class="volume-area">
-        <div class="icon icon-adjust button" :class="[volumeDownClass, buttonClickClass === 'button-click-animation-decrease' ? 'button-click-animation' : '']" @click="handleDecreaseVolume"></div>
+        <div class="icon icon-adjust button"
+          :class="[volumeDownClass, buttonClickClass === 'button-click-animation-decrease' ? 'button-click-animation' : '']"
+          @click="handleDecreaseVolume"></div>
         <div class="icon volume-icon" :style="volumeIconStyle"></div>
-        <div class="icon icon-adjust button" :class="[volumeUpClass, buttonClickClass === 'button-click-animation-increase' ? 'button-click-animation' : '']" @click="handleIncreaseVolume"></div>
+        <div class="icon icon-adjust button"
+          :class="[volumeUpClass, buttonClickClass === 'button-click-animation-increase' ? 'button-click-animation' : '']"
+          @click="handleIncreaseVolume"></div>
       </div>
     </div>
   </div>
@@ -39,7 +43,7 @@ export default {
       trackName: '',
       isBouncing: false,
       volume: localStorage.getItem('volume') || 3,
-      volumeIcons: [ volume0, volume1, volume2, volume3 ],
+      volumeIcons: [volume0, volume1, volume2, volume3],
       buttonClickClass: ''
     }
   },
@@ -65,33 +69,47 @@ export default {
     }
   },
   mounted() {
-    const playerStore = useMainStore();
-    this.setDefaultVolume();
+    const store = useMainStore();
     // 监听当前播放歌曲变化
-    watch(() => playerStore.trackName, (val) => {
+    watch(() => store.trackName, (val) => {
       this.trackName = val
     }),
-    // 监听播放状态变化
-    watch(() => playerStore.isPlaying, (val) => {
-      this.isPlaying = val
-      if (val) {
-        setTimeout(() => { this.triggerBounce() }, 300);
-        this.bounceInterval = setInterval(() => {
-          if (!this.isBouncing) {
-            this.triggerBounce()
-          }
-        }, 5000);
-      } else {
-        clearInterval(this.bounceInterval)
-      }
-    }),
-    // 监听是否打乱
-    watch(() => playerStore.isShuffle, (val) => {
-      this.isShuffle = val
-    })
+      // 监听播放状态变化
+      watch(() => store.isPlaying, (val) => {
+        this.isPlaying = val
+        if (val) {
+          setTimeout(() => { this.triggerBounce() }, 300);
+          this.bounceInterval = setInterval(() => {
+            if (!this.isBouncing) {
+              this.triggerBounce()
+            }
+          }, 5000);
+        } else {
+          clearInterval(this.bounceInterval)
+        }
+      }),
+      // 监听是否打乱
+      watch(() => store.isShuffle, (val) => {
+        this.isShuffle = val
+      })
+
+    // 监听键盘事件
+    window.addEventListener('keydown', this.handleKeydown);
+  },
+
+  beforeUnmount() {
+    // 移除键盘事件监听器
+    window.removeEventListener('keydown', this.handleKeydown);
   },
 
   methods: {
+    handleKeydown(event) {
+      if (event.key === '+' || event.key === '=') {
+        this.handleIncreaseVolume();
+      } else if (event.key === '-') {
+        this.handleDecreaseVolume();
+      }
+    },
     triggerBounce() {
       this.isBouncing = true;
       setTimeout(() => {
@@ -116,14 +134,9 @@ export default {
         this.volume--;
       }
     },
-    setDefaultVolume() {
-      this.volume = localStorage.getItem('volume') || 3;
-      localStorage.setItem('volume', this.volume);
-    },
     triggerVolumeClick(type) {
-      const playerStore = useMainStore();
-      localStorage.setItem('volume', this.volume);
-      playerStore.setVolume(this.volume);
+      const store = useMainStore();
+      store.setVolume(this.volume);
       if (type === 'increase') {
         this.buttonClickClass = 'button-click-animation-increase';
       } else {
@@ -170,8 +183,7 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 24px;
-  line-height: 35px;
-  font-weight: 550;
+  line-height: 41px;
   margin-left: 20px;
 }
 

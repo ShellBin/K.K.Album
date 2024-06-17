@@ -1,20 +1,26 @@
 <template>
   <div class="kk-player-core">
     <div class="switch-group">
-      <div class="live icon button" :class="{ active: mode === 'live', 'show-bubble': showBubble === 'live', }" @mouseover="showBubble = 'live'" @mouseout="showBubble = ''" @click="toggleMode('live')">
-        <div class="bubble-text">K.K.演唱</div>
+      <div class="live icon button" :class="{ active: mode === 'live', 'show-bubble': showBubble === 'live', }"
+        @mouseover="showBubble = 'live'" @mouseout="showBubble = ''" @click="toggleMode('live')">
+        <div class="bubble-text">{{ getText('kkSong', lang) }}</div>
       </div>
-      <div class="music-box icon button" :class="{ active: mode === 'music_box', 'show-bubble': showBubble === 'music_box', }" @mouseover="showBubble = 'music_box'" @mouseout="showBubble = ''" @click="toggleMode('music_box')">
-        <div class="bubble-text">音乐盒版本</div>
+      <div class="music-box icon button"
+        :class="{ active: mode === 'music_box', 'show-bubble': showBubble === 'music_box', }"
+        @mouseover="showBubble = 'music_box'" @mouseout="showBubble = ''" @click="toggleMode('music_box')">
+        <div class="bubble-text">{{ getText('musicBox', lang) }}</div>
       </div>
-      <div class="aircheck icon button" :class="{ active: mode === 'aircheck', 'show-bubble': showBubble === 'aircheck', }" @mouseover="showBubble = 'aircheck'" @mouseout="showBubble = ''" @click="toggleMode('aircheck')">
-        <div class="bubble-text">CD版本</div>
+      <div class="aircheck icon button"
+        :class="{ active: mode === 'aircheck', 'show-bubble': showBubble === 'aircheck', }"
+        @mouseover="showBubble = 'aircheck'" @mouseout="showBubble = ''" @click="toggleMode('aircheck')">
+        <div class="bubble-text">{{ getText('cd', lang) }}</div>
       </div>
     </div>
     <div class="about-group">
       <div></div>
-      <div class="about active icon button" :class="{ 'show-bubble': showBubble === 'about', }" @mouseover="showBubble = 'about'" @mouseout="showBubble = ''">
-        <div class="bubble-text">关于</div>
+      <div class="about active icon button" :class="{ 'show-bubble': showBubble === 'about', }"
+        @mouseover="showBubble = 'about'" @mouseout="showBubble = ''">
+        <div class="bubble-text">{{ getText('about', lang) }}</div>
       </div>
     </div>
   </div>
@@ -24,7 +30,7 @@
 import axios from 'axios';
 import Player from '@/utils/player';
 import { useMainStore } from '@/stores/mainStore';
-import { textLoading, textErrorFetchingAudio } from '@/utils/i18n';
+import { getText } from '@/utils/i18n';
 
 import { LIST_URL, SONGS_FILES_URL } from "@/config/config";
 
@@ -34,10 +40,11 @@ export default {
   data() {
     return {
       mode: localStorage.getItem('mode') || 'live',
+      lang: '',
       // 下载的完整列表
       listData: [],
       player: null,
-      showBubble: ''
+      showBubble: '',
     };
   },
 
@@ -47,19 +54,35 @@ export default {
   },
 
   created() {
-    const playerStore = useMainStore();
-    // 监听 playerStore 中 selectedIndex 的变化,响应切歌
-    this.$watch(() => playerStore.selectedIndex, (newIndex) => {
+    const store = useMainStore();
+    // 监听 store 中 selectedIndex 的变化,响应切歌
+    this.$watch(() => store.selectedIndex, (newIndex) => {
       this.mainPlayerControl(newIndex);
     });
 
-    // 监听 playerStore 中 volume 的变化,响应音量变化
-    this.$watch(() => playerStore.volume, (newVolume) => {
-      this.player.setVolume(volumeMapping[newVolume]);
+    // 监听 store 中 volume 的变化,响应音量变化
+    this.$watch(() => store.volume, (newVolume) => {
+      if (this.player) {
+        this.player.setVolume(volumeMapping[newVolume]);
+      }
+    });
+
+    // 监听 store 中 lang 的变化
+    this.$watch(() => store.lang, (newLang) => {
+      this.lang = newLang;
+      this.createRandomGroup();
+      if (store.isPlaying) {
+        store.setTrack(this.listData[store.playingIndex].name[store.lang]);
+      }
     });
   },
 
   methods: {
+
+    getText(key, lang) {
+      return getText(key, lang);
+    },
+
     // 切换播放模式
     toggleMode(mode) {
       this.mode = mode;
@@ -83,19 +106,19 @@ export default {
 
     // 更新可用的播放列表
     updateAlbumList() {
-      const playerStore = useMainStore();
+      const store = useMainStore();
       const filteredList = this.listData
         .filter(item => item.song[this.mode])
         .map(item => ({
           name: item.name,
           coverImg: item.coverImg
         }));
-      playerStore.setPlayList(filteredList);
+      store.setPlayList(filteredList);
     },
 
     // 创建四个互相不一样的随机数，要求范围在0-3
     createRandomGroup() {
-      const playerStore = useMainStore();
+      const store = useMainStore();
       const randomGroup = [];
       while (randomGroup.length < 4) {
         const randomNum = Math.floor(Math.random() * 4);
@@ -103,20 +126,20 @@ export default {
           randomGroup.push(randomNum);
         }
       }
-      playerStore.setRandomGroup(randomGroup);
+      store.setRandomGroup(randomGroup);
     },
 
     // 主播放控制
     mainPlayerControl(newIndex) {
-      const playerStore = useMainStore();
-      const lang = playerStore.lang;
+      const store = useMainStore();
+      const lang = store.lang;
       // 仅允许单例
       if (!this.player) {
         this.player = new Player();
         this.player.addEventListener('audioEnded', () => {
-          if (playerStore.isShuffle) {
-            const randomIndex = Math.floor(Math.random() * playerStore.playList.length);
-            playerStore.setSelectedIndex(randomIndex);
+          if (store.isShuffle) {
+            const randomIndex = Math.floor(Math.random() * store.playList.length);
+            store.setSelectedIndex(randomIndex);
           }
         });
       }
@@ -124,24 +147,24 @@ export default {
       if (newIndex !== -1) {
         // 播放控制逻辑
         this.player.stop();
-        playerStore.setPlaying(true);
-        playerStore.setTrack(textLoading(lang));
+        store.setPlaying(true);
+        store.setTrack(getText('loading', lang));
         const url = `${SONGS_FILES_URL}/${this.listData[newIndex].song[this.mode].file}`;
         this.player.load(url,
           this.listData[newIndex].song[this.mode].loopStart,
           this.listData[newIndex].song[this.mode].loopEnd
         )
-        .then(() => {
-          playerStore.setTrack(this.listData[newIndex].name[playerStore.lang]);
-          playerStore.setPlayingIndex(newIndex);
-          this.player.play();
-        })
-        .catch((error) => {
-          playerStore.setPlaying(false);
-          playerStore.setPlayingIndex(-1);
-          playerStore.setTrack(textErrorFetchingAudio(lang));
-          console.error('Error fetching audio:', error);
-        });
+          .then(() => {
+            store.setTrack(this.listData[newIndex].name[store.lang]);
+            store.setPlayingIndex(newIndex);
+            this.player.play();
+          })
+          .catch((error) => {
+            store.setPlaying(false);
+            store.setPlayingIndex(-1);
+            store.setTrack(getText('errorFetchingAudio', lang));
+            console.error('Error fetching audio:', error);
+          });
       } else {
         this.stopPlayer();
       }
@@ -149,12 +172,12 @@ export default {
 
     // 中断播放
     stopPlayer() {
-      const playerStore = useMainStore();
+      const store = useMainStore();
       this.player.stop();
-      playerStore.setPlaying(false);
-      playerStore.setPlayingIndex(-1);
-      playerStore.setSelectedIndex(-1);
-      playerStore.setTrack('');
+      store.setPlaying(false);
+      store.setPlayingIndex(-1);
+      store.setSelectedIndex(-1);
+      store.setTrack('');
     }
   },
 };
@@ -202,8 +225,8 @@ export default {
 .bubble-text {
   background-image: url('@/assets/img/public/bubble.png');
   top: -28px;
-  font-size: 1.2rem;
-  padding: 0.3vw 0.5vw;
+  font-size: 1.1rem;
+  padding: 0.4vw 0.6vw;
 }
 
 .icon.show-bubble .bubble-text {

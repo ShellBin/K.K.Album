@@ -10,9 +10,9 @@
 import { computed } from 'vue';
 import { useMainStore } from '@/stores/mainStore';
 
-const playerStore = useMainStore();
+const store = useMainStore();
 
-const scrollPercent = computed(() => playerStore.scrollPercent);
+const scrollPercent = computed(() => store.scrollPercent);
 const clampedScrollPercent = computed(() => {
   return Math.min(93, Math.max(0, scrollPercent.value));
 });

@@ -28,12 +28,16 @@ export const useMainStore = defineStore('main', () => {
   const setSelectedIndex = createSetter(selectedIndex)
   const setPlayingIndex = createSetter(playingIndex)
   const setTrack = createSetter(trackName)
-  const setVolume = createSetter(volume)
   const setRandomGroup = createSetter(randomGroup)
   const setScrollPercent = createSetter(scrollPercent)
 
   function shiftRandomIndex() {
     return randomGroup.value.shift()
+  }
+
+  function setVolume(volume) {
+    volume.value = volume;
+    localStorage.setItem('volume', volume.value);
   }
 
   return {

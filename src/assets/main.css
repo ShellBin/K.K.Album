@@ -1,17 +1,21 @@
 body {
   margin: 0;
-  font-family: 思源黑体 CN Regular;
+  overflow: hidden;
+  user-select: none;
+  font-family: '未来圆SC Regular', 思源黑体 CN Regular;
   /* normal cursor */
   cursor: url('@/assets/img/public/cursor.png') 5 5, pointer;
 }
 
 body:active {
-  cursor: url('@/assets/img/public/cursor-poke.png') 5 5, pointer; /* 按下光标 */
+  cursor: url('@/assets/img/public/cursor-poke.png') 5 5, pointer;
 }
 
-.button {
-  /* hover cursor */
-  cursor: url('@/assets/img/public/cursor.png')5 5, pointer;
+/* .button { } */
+
+@font-face {
+  font-family: '未来圆SC Regular';
+  src: url('@/assets/font/未来圆SC Regular.woff2') format('truetype');
 }
 
 .jelly {
@@ -19,62 +23,8 @@ body:active {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  animation: jelly 10s infinite, float 10s infinite;
 }
 
-.jelly::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: inherit;
-  border-radius: inherit;
-  animation: jelly 10s infinite;
-}
-
-@keyframes jelly {
-
-  0%,
-  100% {
-    transform: scale(1, 1);
-  }
-
-  25% {
-    transform: scale(1, 0.99);
-  }
-
-  50% {
-    transform: scale(0.99, 1);
-  }
-
-  75% {
-    transform: scale(1.01, 0.99);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-
-  25% {
-    transform: translateY(-1px) translateX(1px);
-  }
-
-  50% {
-    transform: translateY(0) translateX(0);
-  }
-
-  75% {
-    transform: translateY(1px) translateX(-1px);
-  }
-
-  100% {
-    transform: translateY(0) translateX(0);
-  }
-}
 
 @keyframes button-click {
   0% {

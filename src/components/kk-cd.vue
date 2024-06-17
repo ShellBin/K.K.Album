@@ -17,7 +17,7 @@
   @click="toggleActive"
   :style="backgroundStyle">
     <div v-if="isHiddenAlbum" class="hidden-album">
-      <span class="hidden-album-title">隐藏曲目</span>
+      <span class="hidden-album-title">{{ getText('hiddenTrack', lang) }}</span>
       <span class="hidden-album-desc">{{ trackName }}</span>
     </div>
     <span class="jelly bubble-text">{{ trackName }}</span>
@@ -27,6 +27,9 @@
 <script>
 import { COVER_FILES_URL } from "@/config/config";
 import { useMainStore } from "@/stores/mainStore";
+
+import { getText } from '@/utils/i18n';
+
 import defaultCover1 from "@/assets/img/kk-cd/default1.png";
 import defaultCover2 from "@/assets/img/kk-cd/default2.png";
 import defaultCover3 from "@/assets/img/kk-cd/default3.png";
@@ -49,6 +52,7 @@ export default {
       showBorder: false, // 是否显示边框
       isHighlighted: false, // 是否高亮
       isHiddenAlbum: false, // 是否为隐藏专辑
+      lang: ''
     }
   },
   computed: {
@@ -67,8 +71,8 @@ export default {
         const coverImg = data.coverImg;
         if (!coverImg) {
           this.isHiddenAlbum = true;
-          const playerStore = useMainStore();
-          const randomIndex = playerStore.shiftRandomIndex();
+          const store = useMainStore();
+          const randomIndex = store.shiftRandomIndex();
           this.coverImgUrl = [defaultCover1, defaultCover2, defaultCover3, defaultCover4][randomIndex];
         } else {
           const encodedCoverImg = encodeURIComponent(coverImg).replace(/'/g, '%27');
@@ -85,6 +89,9 @@ export default {
   }
 },
   methods: {
+    getText(key, lang) {
+      return getText(key, lang);
+    },
     highlight() {
       this.isHighlighted = true;
     },
@@ -93,33 +100,38 @@ export default {
     },
     // 切换气泡
     toggleActive() {
-      const playerStore = useMainStore();
-      if(playerStore.selectedIndex === this.index) {
-        playerStore.setSelectedIndex(-1);
+      const store = useMainStore();
+      if(store.selectedIndex === this.index) {
+        store.setSelectedIndex(-1);
       } else {
-        playerStore.setSelectedIndex(this.index);
+        store.setSelectedIndex(this.index);
       }
       this.showBubble = true;
     }
   },
   created() {
-    const playerStore = useMainStore();
-    // 监听 playerStore 中 selectedIndex 的变化
-    this.$watch(() => playerStore.selectedIndex, (newIndex) => {
+    const store = useMainStore();
+    // 监听 store 中 selectedIndex 的变化
+    this.$watch(() => store.selectedIndex, (newIndex) => {
       if (newIndex !== this.index) {
         this.showBubble = false;
       }
     });
 
-    // 监听 playerStore 中 playingIndex 的变化
-    this.$watch(() => playerStore.playingIndex, (newIndex) => {
+    // 监听 store 中 playingIndex 的变化
+    this.$watch(() => store.playingIndex, (newIndex) => {
       if (newIndex === this.index) {
         this.showBorder = true;
       } else {
         this.showBorder = false;
       }
     });
-  }
+
+    // 监听 store 中 lang 的变化
+    this.$watch(() => store.lang, (newLang) => {
+      this.lang = newLang;
+    });
+  },
 }
 </script>
 
@@ -176,8 +188,8 @@ export default {
 .bubble-text {
   background-image: url('@/assets/img/public/bubble.png');
   top: -20px;
-  font-size: 1.3rem;
-  padding: 1vw 3vw;
+  font-size: 1.6rem;
+  padding: 1vw 2.1vw;
 }
 
 .rectangle.show-bubble .bubble-text {

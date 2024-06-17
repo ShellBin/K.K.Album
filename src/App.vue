@@ -4,13 +4,14 @@
   <div class="main">
     <div class="container" ref="container">
       <CdAdd class="kk-cd-add" />
-      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name.zh, coverImg: cd.coverImg, index }"
+      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name[lang], coverImg: cd.coverImg, index }"
         class="kk-cd" />
     </div>
     <div class="kk-scrollbar-wrapper">
       <KkScrollbar class="kk-scrollbar" />
     </div>
   </div>
+  <KkButtonGroup class="kk-button-group" />
   <Background class="background" />
 </template>
 
@@ -24,6 +25,7 @@ import KkPlayerCore from './components/kk-player-core.vue'
 import CdAdd from './components/kk-cdAdd.vue'
 import KkCd from './components/kk-cd.vue'
 import KkScrollbar from './components/kk-scrollbar.vue'
+import KkButtonGroup from './components/kk-button-group.vue'
 
 export default {
   components: {
@@ -32,19 +34,24 @@ export default {
     KkPlayerCore,
     CdAdd,
     KkCd,
-    KkScrollbar
+    KkScrollbar,
+    KkButtonGroup
   },
   setup() {
-    const playerStore = useMainStore();
-    const isPlaying = computed(() => playerStore.isPlaying);
-    const cdList = computed(() => playerStore.playList);
+    const store = useMainStore();
+    const isPlaying = computed(() => store.isPlaying);
+    const cdList = computed(() => store.playList);
     const container = ref(null);
+
+    const lang = computed(() => {
+      return useMainStore().lang;
+    });
 
     const handleScroll = () => {
       const scrollTop = container.value.scrollTop;
       const scrollHeight = container.value.scrollHeight - container.value.clientHeight;
       const scrollPercent = ((scrollTop / scrollHeight) * 100).toFixed(2);
-      playerStore.setScrollPercent(scrollPercent);
+      store.setScrollPercent(scrollPercent);
     };
 
     onMounted(() => {
@@ -58,7 +65,8 @@ export default {
     return {
       isPlaying,
       cdList,
-      container
+      container,
+      lang
     }
   }
 }
@@ -101,14 +109,10 @@ export default {
   right: 3vw;
 }
 
-@media screen and (max-width: 700px) {
-  .kk-player-core {
-    position: absolute;
-    bottom: 6vw;
-    left: 4vw;
-    top: auto;
-    right: auto;
-  }
+.kk-button-group {
+  position: absolute;
+  bottom: 2vw;
+  right: 3vw;
 }
 
 .main {
@@ -135,6 +139,29 @@ export default {
   height: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden
+}
+
+@media screen and (max-width: 700px) {
+  .kk-player-core {
+    bottom: 6vw;
+    left: 4vw;
+    top: auto;
+    right: auto;
+  }
+
+  .kk-button-group {
+    bottom: 6vw;
+    right: 4vw;
+  }
+
+  .main {
+    height: calc(100vh - 34vh);
+  }
+
+  .container {
+    padding-bottom: 22vh;
+  }
 }
 
 .container::-webkit-scrollbar {

@@ -11,7 +11,7 @@
 
 <script>
 import { useMainStore } from '@/stores/mainStore'
-import { computed, watch } from 'vue'
+import { computed, watch, onMounted } from 'vue'
 
 import wave1 from '@/assets/img/kk-background/wave1.png';
 import wave2 from '@/assets/img/kk-background/wave2.png';
@@ -20,13 +20,34 @@ import wave3 from '@/assets/img/kk-background/wave3.png';
 export default {
   name: 'KK-Background',
   setup() {
-    const playerStore = useMainStore();
-    const isPlaying = computed(() => playerStore.isPlaying);
+    const store = useMainStore();
+    const isPlaying = computed(() => store.isPlaying);
 
     // Watch for changes in isPlaying and update theme color
     watch(isPlaying, (newVal) => {
       const themeColor = newVal ? '#5AD0F2' : '#5467e7';
       document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+    });
+
+    onMounted(() => {
+      document.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault();
+        }
+      });
+
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+          event.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, false);
+
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault();
+      });
     });
 
     return {
