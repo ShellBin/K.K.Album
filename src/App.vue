@@ -4,7 +4,7 @@
   <div class="main">
     <div class="container" ref="container">
       <CdAdd class="kk-cd-add" />
-      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name[lang], coverImg: cd.coverImg, index }"
+      <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name, coverImg: cd.coverImg, index }"
         class="kk-cd" />
     </div>
     <div class="kk-scrollbar-wrapper">
@@ -43,10 +43,6 @@ export default {
     const cdList = computed(() => store.playList);
     const container = ref(null);
 
-    const lang = computed(() => {
-      return useMainStore().lang;
-    });
-
     const handleScroll = () => {
       const scrollTop = container.value.scrollTop;
       const scrollHeight = container.value.scrollHeight - container.value.clientHeight;
@@ -65,8 +61,7 @@ export default {
     return {
       isPlaying,
       cdList,
-      container,
-      lang
+      container
     }
   }
 }

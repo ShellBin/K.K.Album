@@ -1,26 +1,23 @@
 <template>
-  <div class="kk-status-container">
-    <div class="jelly"></div>
-    <div class="kk-status-content">
-      <div style="display: flex; align-items: center;">
-        <div class="icon-area">
-          <div v-if="!isShuffle" class="note icon" :class="{ note2: !isPlaying, bounce: isBouncing }"></div>
-          <div v-if="isShuffle" class="shuffle icon" :class="{ shuffle_bounce: isBouncing }"></div>
-        </div>
-        <div v-show="isPlaying" class="status-text fade">
-          <span v-for="(char, index) in trackName" :key="index" :style="{ animationDelay: `${(index + 1) * 0.18}s` }"
-            :class="{ bounce: isBouncing }">{{ char }}</span>
-        </div>
+  <div class="kk-status-container bg">
+    <div class="kk-status-left">
+      <div class="icon-area">
+        <div v-if="!isShuffle" class="note icon" :class="{ note2: !isPlaying, bounce: isBouncing }"></div>
+        <div v-if="isShuffle" class="shuffle icon" :class="{ shuffle_bounce: isBouncing }"></div>
       </div>
-      <div class="volume-area">
-        <div class="icon icon-adjust button"
-          :class="[volumeDownClass, buttonClickClass === 'button-click-animation-decrease' ? 'button-click-animation' : '']"
-          @click="handleDecreaseVolume"></div>
-        <div class="icon volume-icon" :style="volumeIconStyle"></div>
-        <div class="icon icon-adjust button"
-          :class="[volumeUpClass, buttonClickClass === 'button-click-animation-increase' ? 'button-click-animation' : '']"
-          @click="handleIncreaseVolume"></div>
+      <div v-show="isPlaying" class="status-text fade">
+        <span v-for="(char, index) in trackName" :key="index" :style="{ animationDelay: `${(index + 1) * 0.18}s` }"
+          :class="{ bounce: isBouncing }">{{ char }}</span>
       </div>
+    </div>
+    <div class="volume-area">
+      <div class="icon icon-adjust button"
+        :class="[volumeDownClass, buttonClickClass === 'button-click-animation-decrease' ? 'button-click-animation' : '']"
+        @click="handleDecreaseVolume"></div>
+      <div class="icon volume-icon" :style="volumeIconStyle"></div>
+      <div class="icon icon-adjust button"
+        :class="[volumeUpClass, buttonClickClass === 'button-click-animation-increase' ? 'button-click-animation' : '']"
+        @click="handleIncreaseVolume"></div>
     </div>
   </div>
 </template>
@@ -29,10 +26,10 @@
 import { useMainStore } from '@/stores/mainStore'
 import { watch } from 'vue'
 
-import volume0 from '@/assets/img/kk-status/icon-volume-1.svg';
-import volume1 from '@/assets/img/kk-status/icon-volume-2.svg';
-import volume2 from '@/assets/img/kk-status/icon-volume-3.svg';
-import volume3 from '@/assets/img/kk-status/icon-volume-4.svg';
+import volume0 from '@/assets/img/kk-status/icon-volume-1.png';
+import volume1 from '@/assets/img/kk-status/icon-volume-2.png';
+import volume2 from '@/assets/img/kk-status/icon-volume-3.png';
+import volume3 from '@/assets/img/kk-status/icon-volume-4.png';
 
 export default {
   name: 'KK-Status',
@@ -156,54 +153,41 @@ export default {
   position: relative;
   overflow: visible;
   color: #07BDAA;
-}
-
-.kk-status-content {
-  position: absolute;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 6px 0 0 20px;
-  min-width: 48vw;
-  width: 48vw;
-  max-width: 48vw;
-}
-
-.jelly {
+  justify-content: center;
   height: 50px;
   background-image: url('@/assets/img/kk-status/status-bg.png');
-  position: absolute;
-  z-index: -1;
-  min-width: 47vw;
-  width: 51.8vw;
-  max-width: 60vw;
+  width: 55vw;
 }
+
+.kk-status-left {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 3vw;
+}
+
+.volume-area {
+  position: absolute;
+  right: 3vw;
+}
+
 
 .status-text {
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 24px;
-  line-height: 41px;
-  margin-left: 20px;
-}
-
-.status-text span {
-  display: inline-block;
-  height: 35px;
+  margin-left: 2vw;
 }
 
 @media (max-width: 700px) {
   .status-text {
-    font-size: 18px;
+    font-size: 20px;
   }
 
-  .kk-status-content {
-    min-width: 80vw;
-  }
-
-  .jelly {
-    min-width: 90vw;
-    width: 90vw;
+  .kk-status-container {
+    width: 80vw;
   }
 }
 
@@ -232,6 +216,28 @@ export default {
   background-image: url('@/assets/img/kk-status/icon-shuffle.svg');
   width: 35px;
   height: 35px;
+}
+
+@media screen and (max-width: 400px) {
+  .status-text {
+    font-size: 16px;
+  }
+
+  .icon-area {
+    width: 28px;
+    height: 28px;
+  }
+
+  .note {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .shuffle {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .bounce {

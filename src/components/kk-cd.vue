@@ -18,9 +18,9 @@
   :style="backgroundStyle">
     <div v-if="isHiddenAlbum" class="hidden-album">
       <span class="hidden-album-title">{{ getText('hiddenTrack', lang) }}</span>
-      <span class="hidden-album-desc">{{ trackName }}</span>
+      <span class="hidden-album-desc">{{ trackName[lang] }}</span>
     </div>
-    <span class="jelly bubble-text">{{ trackName }}</span>
+    <span class="bg bubble-text">{{ trackName[lang] }}</span>
   </div>
 </template>
 
@@ -131,6 +131,10 @@ export default {
     this.$watch(() => store.lang, (newLang) => {
       this.lang = newLang;
     });
+
+    if (localStorage.getItem('lang')) {
+      this.lang = localStorage.getItem('lang');
+    }
   },
 }
 </script>

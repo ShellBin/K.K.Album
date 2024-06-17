@@ -21,7 +21,6 @@ export const useMainStore = defineStore('main', () => {
   const scrollPercent = ref(0)
 
   // 使用通用的 setter 方法
-  const setLang = createSetter(lang)
   const setPlaying = createSetter(isPlaying)
   const setShuffle = createSetter(isShuffle)
   const setPlayList = createSetter(playList)
@@ -35,9 +34,14 @@ export const useMainStore = defineStore('main', () => {
     return randomGroup.value.shift()
   }
 
-  function setVolume(volume) {
-    volume.value = volume;
+  function setVolume(newVolume) {
+    volume.value = newVolume;
     localStorage.setItem('volume', volume.value);
+  }
+
+  function setLang(newLang) {
+    lang.value = newLang;
+    localStorage.setItem('lang', lang.value);
   }
 
   return {

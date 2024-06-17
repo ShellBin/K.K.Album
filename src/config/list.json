@@ -1,0 +1,2517 @@
+[
+  {
+    "name": {
+      "en": "K.K. Chorale",
+      "zh": "K.K.赞美诗歌",
+      "jp": "けけさんびか"
+    },
+    "coverImg": "K.K. Chorale.jpg",
+    "song": {
+      "live": {
+        "file": "Live_001_Sanbika.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_001_Sanbika.mp3",
+        "loopStart": "0.704",
+        "loopEnd": "35.78"
+      },
+      "music_box": {
+        "file": "MusicBox_001_Sanbika.mp3",
+        "loopStart": "0",
+        "loopEnd": "34.4"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. March",
+      "zh": "K.K.进行曲",
+      "jp": "けけマーチ"
+    },
+    "coverImg": "K.K. March.jpg",
+    "song": {
+      "live": {
+        "file": "Live_002_March.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_002_March.mp3",
+        "loopStart": "0.4",
+        "loopEnd": "20.68"
+      },
+      "music_box": {
+        "file": "MusicBox_002_March.mp3",
+        "loopStart": "0",
+        "loopEnd": "20.21"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Waltz",
+      "zh": "K.K.圆舞曲",
+      "jp": "けけワルツ"
+    },
+    "coverImg": "K.K. Waltz.jpg",
+    "song": {
+      "live": {
+        "file": "Live_003_Waltz.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_001_Sanbika.mp3",
+        "loopStart": "1.6",
+        "loopEnd": "34.115"
+      },
+      "music_box": {
+        "file": "MusicBox_003_Waltz.mp3",
+        "loopStart": "0",
+        "loopEnd": "35.999"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Swing",
+      "zh": "K.K.摇摆乐",
+      "jp": "けけスウィング"
+    },
+    "coverImg": "K.K. Swing.jpg",
+    "song": {
+      "live": {
+        "file": "Live_004_Swing.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_004_Swing.mp3",
+        "loopStart": "6.143",
+        "loopEnd": "35.851"
+      },
+      "music_box": {
+        "file": "MusicBox_004_Swing.mp3",
+        "loopStart": "9.896",
+        "loopEnd": "39.587"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Jazz",
+      "zh": "K.K.爵士乐",
+      "jp": "けけジャズ"
+    },
+    "coverImg": "K.K. Jazz.jpg",
+    "song": {
+      "live": {
+        "file": "Live_005_Jazz.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_005_Jazz.mp3",
+        "loopStart": "6.485",
+        "loopEnd": "56.575"
+      },
+      "music_box": {
+        "file": "MusicBox_005_Jazz.mp3",
+        "loopStart": "0",
+        "loopEnd": "64"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Fusion",
+      "zh": "K.K.融合爵士乐",
+      "jp": "けけフュージョン"
+    },
+    "coverImg": "K.K. Fusion.jpg",
+    "song": {
+      "live": {
+        "file": "Live_006_Fusion.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_006_Fusion.mp3",
+        "loopStart": "33.335",
+        "loopEnd": "88.89"
+      },
+      "music_box": {
+        "file": "MusicBox_006_Fusion.mp3",
+        "loopStart": "0.9",
+        "loopEnd": "49.765"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Étude",
+      "zh": "K.K.练习曲",
+      "jp": "けけエチュード"
+    },
+    "coverImg": "K.K. Étude.jpg",
+    "song": {
+      "live": {
+        "file": "Live_007_Etude.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_007_Etude.mp3",
+        "loopStart": "0.25",
+        "loopEnd": "38.182"
+      },
+      "music_box": {
+        "file": "MusicBox_007_Etude.mp3",
+        "loopStart": "0",
+        "loopEnd": "51"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Lullaby",
+      "zh": "K.K.摇篮曲",
+      "jp": "けけララバイ"
+    },
+    "coverImg": "K.K. Lullaby.jpg",
+    "song": {
+      "live": {
+        "file": "Live_008_Lullaby.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_008_Lullaby.mp3",
+        "loopStart": "0.87",
+        "loopEnd": "96.87"
+      },
+      "music_box": {
+        "file": "MusicBox_008_Lullaby.mp3",
+        "loopStart": "0",
+        "loopEnd": "82.285"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Aria",
+      "zh": "K.K.咏叹调",
+      "jp": "けけマリア"
+    },
+    "coverImg": "K.K. Aria.jpg",
+    "song": {
+      "live": {
+        "file": "Live_009_Maria.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_009_Maria.mp3",
+        "loopStart": "13.18",
+        "loopEnd": "70.848"
+      },
+      "music_box": {
+        "file": "MusicBox_009_Maria.mp3",
+        "loopStart": "0",
+        "loopEnd": "54.857"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Samba",
+      "zh": "K.K.桑巴",
+      "jp": "けけサンバ"
+    },
+    "coverImg": "K.K. Samba.jpg",
+    "song": {
+      "live": {
+        "file": "Live_010_Samba.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_010_Samba.mp3",
+        "loopStart": "4.571",
+        "loopEnd": "54.857"
+      },
+      "music_box": {
+        "file": "MusicBox_010_Samba.mp3",
+        "loopStart": "3.703",
+        "loopEnd": "51.11"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Bossa",
+      "zh": "K.K.巴萨诺瓦",
+      "jp": "けけボッサ"
+    },
+    "coverImg": "K.K. Bossa.jpg",
+    "song": {
+      "live": {
+        "file": "Live_011_Bossa.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_011_Bossa.mp3",
+        "loopStart": "3.75",
+        "loopEnd": "37.5"
+      },
+      "music_box": {
+        "file": "MusicBox_011_Bossa.mp3",
+        "loopStart": "0",
+        "loopEnd": "42.667"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Calypso",
+      "zh": "K.K.卡利普索",
+      "jp": "けけカリプソ"
+    },
+    "coverImg": "K.K. Calypso.jpg",
+    "song": {
+      "live": {
+        "file": "Live_012_Caripso.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_012_Caripso.mp3",
+        "loopStart": "0.26",
+        "loopEnd": "27.816"
+      },
+      "music_box": {
+        "file": "MusicBox_012_Caripso.mp3",
+        "loopStart": "0",
+        "loopEnd": "27.428"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Salsa",
+      "zh": "K.K.萨尔萨",
+      "jp": "けけサルサ"
+    },
+    "coverImg": "K.K. Salsa.jpg",
+    "song": {
+      "live": {
+        "file": "Live_013_Salsa.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_013_Salsa.mp3",
+        "loopStart": "5",
+        "loopEnd": "60"
+      },
+      "music_box": {
+        "file": "MusicBox_013_Salsa.mp3",
+        "loopStart": "0",
+        "loopEnd": "76.19"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Mambo",
+      "zh": "K.K.曼波",
+      "jp": "けけマンボ"
+    },
+    "coverImg": "K.K. Mambo.jpg",
+    "song": {
+      "live": {
+        "file": "Live_014_Mambo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_014_Mambo.mp3",
+        "loopStart": "3.997",
+        "loopEnd": "41.788"
+      },
+      "music_box": {
+        "file": "MusicBox_014_Mambo.mp3",
+        "loopStart": "0",
+        "loopEnd": "52.746"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Reggae",
+      "zh": "K.K.雷鬼",
+      "jp": "けけレゲエ"
+    },
+    "coverImg": "K.K. Reggae.jpg",
+    "song": {
+      "live": {
+        "file": "Live_015_Reggae.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_015_Reggae.mp3",
+        "loopStart": "8.822",
+        "loopEnd": "38.132"
+      },
+      "music_box": {
+        "file": "MusicBox_015_Reggae.mp3",
+        "loopStart": "8.727",
+        "loopEnd": "43.636"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Ska",
+      "zh": "K.K.斯卡",
+      "jp": "けけスカ"
+    },
+    "coverImg": "K.K. Ska.jpg",
+    "song": {
+      "live": {
+        "file": "Live_016_Ska.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_016_Ska.mp3",
+        "loopStart": "8.115",
+        "loopEnd": "30.341"
+      },
+      "music_box": {
+        "file": "MusicBox_016_Ska.mp3",
+        "loopStart": "0",
+        "loopEnd": "34.285"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Tango",
+      "zh": "K.K.探戈",
+      "jp": "けけタンゴ"
+    },
+    "coverImg": "K.K. Tango.jpg",
+    "song": {
+      "live": {
+        "file": "Live_017_Tango.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_017_Tango.mp3",
+        "loopStart": "9.1",
+        "loopEnd": "23.771"
+      },
+      "music_box": {
+        "file": "MusicBox_017_Tango.mp3",
+        "loopStart": "5.333",
+        "loopEnd": "26.666"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Faire",
+      "zh": "冲绳K.K.",
+      "jp": "ハイサイけけ"
+    },
+    "coverImg": "K.K. Faire.jpg",
+    "song": {
+      "live": {
+        "file": "Live_018_Haisai.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_018_Haisai.mp3",
+        "loopStart": "6.697",
+        "loopEnd": "32.652"
+      },
+      "music_box": {
+        "file": "MusicBox_018_Haisai.mp3",
+        "loopStart": "5.51",
+        "loopEnd": "35.368"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Aloha K.K.",
+      "zh": "夏威夷K.K.",
+      "jp": "アロハけけ"
+    },
+    "coverImg": "Aloha K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_019_Aloha.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_019_Aloha.mp3",
+        "loopStart": "0.96",
+        "loopEnd": "60.96"
+      },
+      "music_box": {
+        "file": "MusicBox_019_Aloha.mp3",
+        "loopStart": "5.332",
+        "loopEnd": "74.665"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Lucky K.K.",
+      "zh": "爱尔兰乐曲",
+      "jp": "アイリッシュそんぐ"
+    },
+    "coverImg": "Lucky K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_020_Irish.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_020_Irish.mp3",
+        "loopStart": "7.347",
+        "loopEnd": "55.347"
+      },
+      "music_box": {
+        "file": "MusicBox_020_Irish.mp3",
+        "loopStart": "0",
+        "loopEnd": "41.739"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Condor",
+      "zh": "秘鲁之歌",
+      "jp": "ペルーのうた"
+    },
+    "coverImg": "K.K. Condor.jpg",
+    "song": {
+      "live": {
+        "file": "Live_021_Peru.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_021_Peru.mp3",
+        "loopStart": "6.26",
+        "loopEnd": "44.18"
+      },
+      "music_box": {
+        "file": "MusicBox_021_Peru.mp3",
+        "loopStart": "0",
+        "loopEnd": "55.384"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Steppe",
+      "zh": "哥萨克乐曲",
+      "jp": "コサックそんぐ"
+    },
+    "coverImg": "K.K. Steppe.jpg",
+    "song": {
+      "live": {
+        "file": "Live_022_Cossack.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_022_Cossack.mp3",
+        "loopStart": "3.558",
+        "loopEnd": "56.488"
+      },
+      "music_box": {
+        "file": "MusicBox_022_Cossack.mp3",
+        "loopStart": "0",
+        "loopEnd": "52.682"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Imperial K.K.",
+      "zh": "K.K.中华",
+      "jp": "けけチャイナ"
+    },
+    "coverImg": "Imperial K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_023_China.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_023_China.mp3",
+        "loopStart": "4.515",
+        "loopEnd": "36.35"
+      },
+      "music_box": {
+        "file": "MusicBox_023_China.mp3",
+        "loopStart": "0",
+        "loopEnd": "38.4"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Casbah",
+      "zh": "土耳其乐曲",
+      "jp": "トルコそんぐ"
+    },
+    "coverImg": "K.K. Casbah.jpg",
+    "song": {
+      "live": {
+        "file": "Live_024_Turkey.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_024_Turkey.mp3",
+        "loopStart": "4.444",
+        "loopEnd": "57.779"
+      },
+      "music_box": {
+        "file": "MusicBox_024_Turkey.mp3",
+        "loopStart": "0",
+        "loopEnd": "45.473"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Safari",
+      "zh": "K.K.非洲音乐",
+      "jp": "けけアフロ"
+    },
+    "coverImg": "K.K. Safari.jpg",
+    "song": {
+      "live": {
+        "file": "Live_025_Afro.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_025_Afro.mp3",
+        "loopStart": "7.688",
+        "loopEnd": "62.408"
+      },
+      "music_box": {
+        "file": "MusicBox_025_Afro.mp3",
+        "loopStart": "0.32",
+        "loopEnd": "50.43"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Folk",
+      "zh": "K.K.民谣",
+      "jp": "けけみんよう"
+    },
+    "coverImg": "K.K. Folk.jpg",
+    "song": {
+      "live": {
+        "file": "Live_026_Minyo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_026_Minyo.mp3",
+        "loopStart": "17.999",
+        "loopEnd": "50.1"
+      },
+      "music_box": {
+        "file": "MusicBox_026_Minyo.mp3",
+        "loopStart": "3.202",
+        "loopEnd": "31.436"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Rock",
+      "zh": "K.K.乡村摇滚",
+      "jp": "けけビリー"
+    },
+    "coverImg": "K.K. Rock.jpg",
+    "song": {
+      "live": {
+        "file": "Live_027_Rock.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_027_Rock.mp3",
+        "loopStart": "0.29",
+        "loopEnd": "25.808"
+      },
+      "music_box": {
+        "file": "MusicBox_027_Rock.mp3",
+        "loopStart": "0.31",
+        "loopEnd": "28.27"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Rockin' K.K.",
+      "zh": "K.K.50年代摇滚",
+      "jp": "けけのロケンロール"
+    },
+    "coverImg": "Rockin' K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_028_Rocknroll.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_028_Rocknroll.mp3",
+        "loopStart": "6.781",
+        "loopEnd": "36.23"
+      },
+      "music_box": {
+        "file": "MusicBox_028_Rocknroll.mp3",
+        "loopStart": "0",
+        "loopEnd": "38.399"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Ragtime",
+      "zh": "拉格泰姆音乐",
+      "jp": "ラグタイム"
+    },
+    "coverImg": "K.K. Ragtime.jpg",
+    "song": {
+      "live": {
+        "file": "Live_029_Ragtime.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_029_Ragtime.mp3",
+        "loopStart": "4.935",
+        "loopEnd": "29.69"
+      },
+      "music_box": {
+        "file": "MusicBox_029_Ragtime.mp3",
+        "loopStart": "0",
+        "loopEnd": "27.432"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Gumbo",
+      "zh": "新奥尔良乐曲",
+      "jp": "ニューオリンズそんぐ"
+    },
+    "coverImg": "K.K. Gumbo.jpg",
+    "song": {
+      "live": {
+        "file": "Live_030_Neworleans.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_030_Neworleans.mp3",
+        "loopStart": "10.395",
+        "loopEnd": "37.605"
+      },
+      "music_box": {
+        "file": "MusicBox_030_Neworleans.mp3",
+        "loopStart": "0",
+        "loopEnd": "37.892"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "The K. Funk",
+      "zh": "K.K.放克",
+      "jp": "けけファンク"
+    },
+    "coverImg": "The K. Funk.jpg",
+    "song": {
+      "live": {
+        "file": "Live_031_Funk.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_031_Funk.mp3",
+        "loopStart": "1.46",
+        "loopEnd": "37.971"
+      },
+      "music_box": {
+        "file": "MusicBox_031_Funk.mp3",
+        "loopStart": "0",
+        "loopEnd": "25.714"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Blues",
+      "zh": "K.K.蓝调",
+      "jp": "けけブルース"
+    },
+    "coverImg": "K.K. Blues.jpg",
+    "song": {
+      "live": {
+        "file": "Live_032_Blues.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_032_Blues.mp3",
+        "loopStart": "1.2",
+        "loopEnd": "30.295"
+      },
+      "music_box": {
+        "file": "MusicBox_032_Blues.mp3",
+        "loopStart": "0",
+        "loopEnd": "32"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Soulful K.K.",
+      "zh": "K.K.心灵音乐",
+      "jp": "けけゴスペル"
+    },
+    "coverImg": "Soulful K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_033_Gospel.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_033_Gospel.mp3",
+        "loopStart": "0.19",
+        "loopEnd": "65.454"
+      },
+      "music_box": {
+        "file": "MusicBox_033_Gospel.mp3",
+        "loopStart": "0.191",
+        "loopEnd": "55.47"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Soul",
+      "zh": "K.K.灵魂乐",
+      "jp": "けけソウル"
+    },
+    "coverImg": "K.K. Soul.jpg",
+    "song": {
+      "live": {
+        "file": "Live_034_Soul.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_034_Soul.mp3",
+        "loopStart": "9.604",
+        "loopEnd": "67.204"
+      },
+      "music_box": {
+        "file": "MusicBox_034_Soul.mp3",
+        "loopStart": "0",
+        "loopEnd": "51.2"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Cruisin",
+      "zh": "都市K.K.",
+      "jp": "アーバンけけ"
+    },
+    "coverImg": "K.K. Cruisin.jpg",
+    "song": {
+      "live": {
+        "file": "Live_035_Urban.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_035_Urban.mp3",
+        "loopStart": "11.428",
+        "loopEnd": "57.143"
+      },
+      "music_box": {
+        "file": "MusicBox_035_Urban.mp3",
+        "loopStart": "0",
+        "loopEnd": "34.285"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Love Song",
+      "zh": "K.K.情歌",
+      "jp": "けけラヴソング"
+    },
+    "coverImg": "K.K. Love Song.jpg",
+    "song": {
+      "live": {
+        "file": "Live_036_Lovesong.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_036_Lovesong.mp3",
+        "loopStart": "7.329",
+        "loopEnd": "67.789"
+      },
+      "music_box": {
+        "file": "MusicBox_036_Lovesong.mp3",
+        "loopStart": "0",
+        "loopEnd": "52.174"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. D&B",
+      "zh": "鼓打贝斯",
+      "jp": "ドラムンベース"
+    },
+    "coverImg": "K.K. D&B.jpg",
+    "song": {
+      "live": {
+        "file": "Live_037_Drumnbass.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_037_Drumnbass.mp3",
+        "loopStart": "6.696",
+        "loopEnd": "57.221"
+      },
+      "music_box": {
+        "file": "MusicBox_037_Drumnbass.mp3",
+        "loopStart": "0",
+        "loopEnd": "28.443"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Technopop",
+      "zh": "电音节奏",
+      "jp": "テクノビート"
+    },
+    "coverImg": "K.K. Technopop.jpg",
+    "song": {
+      "live": {
+        "file": "Live_038_Technobeat.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_038_Technobeat.mp3",
+        "loopStart": "15.235",
+        "loopEnd": "56.671"
+      },
+      "music_box": {
+        "file": "MusicBox_038_Technobeat.mp3",
+        "loopStart": "16",
+        "loopEnd": "48"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "DJ K.K.",
+      "zh": "欧陆节拍",
+      "jp": "ユーロビート"
+    },
+    "coverImg": "DJ K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_039_Eurobeat.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_039_Eurobeat.mp3",
+        "loopStart": "3.95",
+        "loopEnd": "38.71"
+      },
+      "music_box": {
+        "file": "MusicBox_039_Eurobeat.mp3",
+        "loopStart": "0",
+        "loopEnd": "47.999"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Only Me",
+      "zh": "只有我",
+      "jp": "オンリーミー"
+    },
+    "coverImg": "Only Me.jpg",
+    "song": {
+      "live": {
+        "file": "Live_040_Onlyme.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_040_Onlyme.mp3",
+        "loopStart": "8.649",
+        "loopEnd": "48.647"
+      },
+      "music_box": {
+        "file": "MusicBox_040_Onlyme.mp3",
+        "loopStart": "0",
+        "loopEnd": "40"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Country",
+      "zh": "K.K.乡村",
+      "jp": "けけカントリー"
+    },
+    "coverImg": "K.K. Country.jpg",
+    "song": {
+      "live": {
+        "file": "Live_041_Country.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_041_Country.mp3",
+        "loopStart": "4.71",
+        "loopEnd": "38.94"
+      },
+      "music_box": {
+        "file": "MusicBox_041_Country.mp3",
+        "loopStart": "0",
+        "loopEnd": "28.86"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Surfin' K.K.",
+      "zh": "电吉他乐曲",
+      "jp": "エレキそんぐ"
+    },
+    "coverImg": "Surfin' K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_042_Eleki.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_042_Eleki.mp3",
+        "loopStart": "3.78",
+        "loopEnd": "23.78"
+      },
+      "music_box": {
+        "file": "MusicBox_042_Eleki.mp3",
+        "loopStart": "9.599",
+        "loopEnd": "31.198"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Ballad",
+      "zh": "K.K.叙事歌谣",
+      "jp": "けけバラット"
+    },
+    "coverImg": "K.K. Ballad.jpg",
+    "song": {
+      "live": {
+        "file": "Live_043_Ballad.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_043_Ballad.mp3",
+        "loopStart": "6",
+        "loopEnd": "36"
+      },
+      "music_box": {
+        "file": "MusicBox_043_Ballad.mp3",
+        "loopStart": "9.734",
+        "loopEnd": "42.168"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Comrade K.K.",
+      "zh": "昭和K.K.歌谣",
+      "jp": "しょうわけけかよう"
+    },
+    "coverImg": "Comrade K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_044_Showakayo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_044_Showakayo.mp3",
+        "loopStart": "3.638",
+        "loopEnd": "25.791"
+      },
+      "music_box": {
+        "file": "MusicBox_044_Showakayo.mp3",
+        "loopStart": "0",
+        "loopEnd": "37.894"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Lament",
+      "zh": "K.K.演歌",
+      "jp": "けけえんか"
+    },
+    "coverImg": "K.K. Lament.jpg",
+    "song": {
+      "live": {
+        "file": "Live_045_Enka.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_045_Enka.mp3",
+        "loopStart": "13.53",
+        "loopEnd": "46.899"
+      },
+      "music_box": {
+        "file": "MusicBox_045_Enka.mp3",
+        "loopStart": "0",
+        "loopEnd": "25.6"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Go K.K. Rider",
+      "zh": "冲吧！K.K.摩托车手",
+      "jp": "ゆけ！けけライダー"
+    },
+    "coverImg": "Go K.K. Rider.jpg",
+    "song": {
+      "live": {
+        "file": "Live_046_Kekerider.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_046_Kekerider.mp3",
+        "loopStart": "6.39",
+        "loopEnd": "37.615"
+      },
+      "music_box": {
+        "file": "MusicBox_046_Kekerider.mp3",
+        "loopStart": "7.2",
+        "loopEnd": "71.199"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Dirge",
+      "zh": "惊悚歌",
+      "jp": "こわいうた"
+    },
+    "coverImg": "K.K. Dirge.jpg",
+    "song": {
+      "live": {
+        "file": "Live_047_Kowaiuta.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_047_Kowaiuta.mp3",
+        "loopStart": "10.36",
+        "loopEnd": "71.46"
+      },
+      "music_box": {
+        "file": "MusicBox_047_Kowaiuta.mp3",
+        "loopStart": "0",
+        "loopEnd": "30"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Western",
+      "zh": "K.K.西部",
+      "jp": "けけウェスタン"
+    },
+    "coverImg": "K.K. Western.jpg",
+    "song": {
+      "live": {
+        "file": "Live_048_Western.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_048_Western.mp3",
+        "loopStart": "11.334",
+        "loopEnd": "40.519"
+      },
+      "music_box": {
+        "file": "MusicBox_048_Western.mp3",
+        "loopStart": "0.705",
+        "loopEnd": "45.882"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Mr. K.K.",
+      "zh": "K.K.老师",
+      "jp": "けけせんせい"
+    },
+    "coverImg": "Mr. K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_049_Sensei.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_049_Sensei.mp3",
+        "loopStart": "11.899",
+        "loopEnd": "51.899"
+      },
+      "music_box": {
+        "file": "MusicBox_049_Sensei.mp3",
+        "loopStart": "5.332",
+        "loopEnd": "58.666"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Café K.K.",
+      "zh": "K.K.巴黎",
+      "jp": "けけパリ"
+    },
+    "coverImg": "Café K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_050_Paris.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_050_Paris.mp3",
+        "loopStart": "3.359",
+        "loopEnd": "68.809"
+      },
+      "music_box": {
+        "file": "MusicBox_050_Paris.mp3",
+        "loopStart": "0",
+        "loopEnd": "68.571"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Parade",
+      "zh": "K.K.嘉年华",
+      "jp": "けけパレード"
+    },
+    "coverImg": "K.K. Parade.jpg",
+    "song": {
+      "live": {
+        "file": "Live_051_Parade.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_051_Parade.mp3",
+        "loopStart": "4.876",
+        "loopEnd": "48.914"
+      },
+      "music_box": {
+        "file": "MusicBox_051_Parade.mp3",
+        "loopStart": "0",
+        "loopEnd": "50.526"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Mariachi",
+      "zh": "墨西哥绅士K.K.",
+      "jp": "セニョールけけ"
+    },
+    "coverImg": "K.K. Mariachi.jpg",
+    "song": {
+      "live": {
+        "file": "Live_052_Senor.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_052_Senor.mp3",
+        "loopStart": "0.858",
+        "loopEnd": "38.137"
+      },
+      "music_box": {
+        "file": "MusicBox_052_Senor.mp3",
+        "loopStart": "1.71",
+        "loopEnd": "35.357"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Song",
+      "zh": "K.K.乐曲",
+      "jp": "けけソング"
+    },
+    "coverImg": "K.K. Song.jpg",
+    "song": {
+      "live": {
+        "file": "Live_053_Kekesong.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_053_Kekesong.mp3",
+        "loopStart": "0.142",
+        "loopEnd": "16.505"
+      },
+      "music_box": {
+        "file": "MusicBox_053_Kekesong.mp3",
+        "loopStart": "0",
+        "loopEnd": "18.947"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "I Love You",
+      "zh": "我爱你",
+      "jp": "だいすき"
+    },
+    "coverImg": "I Love You.jpg",
+    "song": {
+      "live": {
+        "file": "Live_054_Daisuki.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_054_Daisuki.mp3",
+        "loopStart": "10.373",
+        "loopEnd": "55.678"
+      },
+      "music_box": {
+        "file": "MusicBox_054_Daisuki.mp3",
+        "loopStart": "0",
+        "loopEnd": "46.47"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Two Days Ago",
+      "zh": "前天",
+      "jp": "おととい"
+    },
+    "coverImg": "Two Days Ago.jpg",
+    "song": {
+      "live": {
+        "file": "Live_055_Ototoi.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_055_Ototoi.mp3",
+        "loopStart": "5.452",
+        "loopEnd": "60.682"
+      },
+      "music_box": {
+        "file": "MusicBox_055_Ototoi.mp3",
+        "loopStart": "0",
+        "loopEnd": "45.176"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "My Place",
+      "zh": "我的归所",
+      "jp": "ぼくのばしょ"
+    },
+    "coverImg": "My Place.jpg",
+    "song": {
+      "live": {
+        "file": "Live_056_Bokunobasho.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_056_Bokunobasho.mp3",
+        "loopStart": "0.336",
+        "loopEnd": "36.336"
+      },
+      "music_box": {
+        "file": "MusicBox_056_Bokunobasho.mp3",
+        "loopStart": "7.741",
+        "loopEnd": "46.449"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Forest Life",
+      "zh": "森林生活",
+      "jp": "もりのせいかつ"
+    },
+    "coverImg": "Forest Life.jpg",
+    "song": {
+      "live": {
+        "file": "Live_057_Morinoseikatsu.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_057_Morinoseikatsu.mp3",
+        "loopStart": "4.362",
+        "loopEnd": "26.18"
+      },
+      "music_box": {
+        "file": "MusicBox_057_Morinoseikatsu",
+        "loopStart": "0",
+        "loopEnd": "23.414"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "To the Edge",
+      "zh": "漫弥",
+      "jp": "ナミナミ"
+    },
+    "coverImg": "To the Edge.jpg",
+    "song": {
+      "live": {
+        "file": "Live_058_Naminami.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_058_Naminami.mp3",
+        "loopStart": "0",
+        "loopEnd": "57.59"
+      },
+      "music_box": {
+        "file": "MusicBox_058_Naminami.mp3",
+        "loopStart": "7.789",
+        "loopEnd": "56.315"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Pondering",
+      "zh": "思考中",
+      "jp": "かんがえちゅう"
+    },
+    "coverImg": "Pondering.jpg",
+    "song": {
+      "live": {
+        "file": "Live_059_Kangaechu.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_059_Kangaechu.mp3",
+        "loopStart": "0.517",
+        "loopEnd": "42.256"
+      },
+      "music_box": {
+        "file": "MusicBox_059_Kangaechu.mp3",
+        "loopStart": "0",
+        "loopEnd": "30.476"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Dixie",
+      "zh": "K.K.迪克西",
+      "jp": "けけディキシー"
+    },
+    "coverImg": "K.K. Dixie.jpg",
+    "song": {
+      "live": {
+        "file": "Live_060_Dixie.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_060_Dixie.mp3",
+        "loopStart": "3.133",
+        "loopEnd": "23.343"
+      },
+      "music_box": {
+        "file": "MusicBox_060_Dixie.mp3",
+        "loopStart": "0.856",
+        "loopEnd": "28.285"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Marathon",
+      "zh": "K.K.甘美朗",
+      "jp": "けけガムラン"
+    },
+    "coverImg": "K.K. Marathon.jpg",
+    "song": {
+      "live": {
+        "file": "Live_061_Gamelan.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_061_Gamelan.mp3",
+        "loopStart": "0.229",
+        "loopEnd": "36.583"
+      },
+      "music_box": {
+        "file": "MusicBox_061_Gamelan.mp3",
+        "loopStart": "0",
+        "loopEnd": "24"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "King K.K.",
+      "zh": "K.K.领主",
+      "jp": "けけだいみょう"
+    },
+    "coverImg": "King K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_062_Daimyo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_062_Daimyo.mp3",
+        "loopStart": "5.834",
+        "loopEnd": "56.36"
+      },
+      "music_box": {
+        "file": "MusicBox_062_Daimyo.mp3",
+        "loopStart": "0",
+        "loopEnd": "58.378"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Mountain Song",
+      "zh": "阿尔卑斯山乐曲",
+      "jp": "アルペンそんぐ"
+    },
+    "coverImg": "Mountain Song.jpg",
+    "song": {
+      "live": {
+        "file": "Live_063_Alpine.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_063_Alpine.mp3",
+        "loopStart": "0.384",
+        "loopEnd": "26.809"
+      },
+      "music_box": {
+        "file": "MusicBox_063_Alpine.mp3",
+        "loopStart": "0",
+        "loopEnd": "41.141"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Marine Song 2001",
+      "zh": "船歌2001",
+      "jp": "ふなうた2001"
+    },
+    "coverImg": "Marine Song 2001.jpg",
+    "song": {
+      "live": {
+        "file": "Live_064_Hunauta2001.mp3"
+      },
+      "aircheck": {
+        "file": "MBGM_Audio_064_Hunauta2001.mp3",
+        "loopStart": "6.376",
+        "loopEnd": "220.661"
+      },
+      "music_box": {
+        "file": "MusicBox_064_Hunauta2001.mp3",
+        "loopStart": "0",
+        "loopEnd": "46.26"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Neapolitan",
+      "zh": "意大利面",
+      "jp": "ナポリタン"
+    },
+    "coverImg": "Neapolitan.jpg",
+    "song": {
+      "live": {
+        "file": "Live_065_Napolitan.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_065_Napolitan.mp3",
+        "loopStart": "3.527",
+        "loopEnd": "47.647"
+      },
+      "music_box": {
+        "file": "MusicBox_065_Napolitan.mp3",
+        "loopStart": "2.603",
+        "loopEnd": "46.317"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Steep Hill",
+      "zh": "二段斜坡",
+      "jp": "にだんざか"
+    },
+    "coverImg": "Steep Hill.jpg",
+    "song": {
+      "live": {
+        "file": "Live_066_Nidanzaka.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_066_Nidanzaka.mp3",
+        "loopStart": "5.597",
+        "loopEnd": "68.97"
+      },
+      "music_box": {
+        "file": "MusicBox_066_Nidanzaka.mp3",
+        "loopStart": "0",
+        "loopEnd": "58.378"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Rockabilly",
+      "zh": "K.K.乡村摇滚",
+      "jp": "けけビリー"
+    },
+    "coverImg": "K.K. Rockabilly.jpg",
+    "song": {
+      "live": {
+        "file": "Live_067_Kekebily.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_067_Kekebily.mp3",
+        "loopStart": "1.43",
+        "loopEnd": "40.312"
+      },
+      "music_box": {
+        "file": "MusicBox_067_Kekebily.mp3",
+        "loopStart": "6.666",
+        "loopEnd": "46.666"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Agent K.K.",
+      "zh": "K.K.刑警",
+      "jp": "けけけいじ"
+    },
+    "coverImg": "Agent K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_068_Keiji.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_068_Keiji.mp3",
+        "loopStart": "8.646",
+        "loopEnd": "48.316"
+      },
+      "music_box": {
+        "file": "MusicBox_068_Keiji.mp3",
+        "loopStart": "0",
+        "loopEnd": "52.682"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Rally",
+      "zh": "K.K.大和祭典",
+      "jp": "けけおんど"
+    },
+    "coverImg": "K.K. Rally.jpg",
+    "song": {
+      "live": {
+        "file": "Live_069_Ondo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_069_Ondo.mp3",
+        "loopStart": "4.14",
+        "loopEnd": "44.785"
+      },
+      "music_box": {
+        "file": "MusicBox_069_Ondo.mp3",
+        "loopStart": "0.22",
+        "loopEnd": "38.846"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Metal",
+      "zh": "K.K.金属摇滚",
+      "jp": "けけメタル"
+    },
+    "coverImg": "K.K. Metal.jpg",
+    "song": {
+      "live": {
+        "file": "Live_070_Metal.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_070_Metal.mp3",
+        "loopStart": "2.79",
+        "loopEnd": "28.69"
+      },
+      "music_box": {
+        "file": "MusicBox_070_Metal.mp3",
+        "loopStart": "0",
+        "loopEnd": "51"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Stale Cupcakes",
+      "zh": "蓝色饭团",
+      "jp": "ブルーおにぎり"
+    },
+    "coverImg": "Stale Cupcakes.jpg",
+    "song": {
+      "live": {
+        "file": "Live_071_Blueonigiri.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_071_Blueonigiri.mp3",
+        "loopStart": "12",
+        "loopEnd": "69"
+      },
+      "music_box": {
+        "file": "MusicBox_071_Blueonigiri.mp3",
+        "loopStart": "9.1",
+        "loopEnd": "56.999"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Spring Blossoms",
+      "zh": "春暖花开",
+      "jp": "はるのこもれび"
+    },
+    "coverImg": "Spring Blossoms.jpg",
+    "song": {
+      "live": {
+        "file": "Live_072_Harunokomorebi.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_072_Harunokomorebi.mp3",
+        "loopStart": "0.512",
+        "loopEnd": "34.797"
+      },
+      "music_box": {
+        "file": "MusicBox_072_Harunokomorebi.mp3",
+        "loopStart": "0",
+        "loopEnd": "44.651"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Wandering",
+      "zh": "流浪",
+      "jp": "ほうろう"
+    },
+    "coverImg": "Wandering.jpg",
+    "song": {
+      "live": {
+        "file": "Live_073_Horo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_073_Horo.mp3",
+        "loopStart": "0.35",
+        "loopEnd": "29.205"
+      },
+      "music_box": {
+        "file": "MusicBox_073_Horo.mp3",
+        "loopStart": "0",
+        "loopEnd": "36.286"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. House",
+      "zh": "K.K.浩室",
+      "jp": "けけハウス"
+    },
+    "coverImg": "K.K. House.jpg",
+    "song": {
+      "live": {
+        "file": "Live_074_House.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_074_House.mp3",
+        "loopStart": "0.35",
+        "loopEnd": "46.425"
+      },
+      "music_box": {
+        "file": "MusicBox_074_House.mp3",
+        "loopStart": "5.646",
+        "loopEnd": "50.823"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Sonata",
+      "zh": "K.K.奏鸣曲",
+      "jp": "けけのソナタ"
+    },
+    "coverImg": "K.K. Sonata.jpg",
+    "song": {
+      "live": {
+        "file": "Live_075_Sonata.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_075_Sonata.mp3",
+        "loopStart": "1.74",
+        "loopEnd": "58.736"
+      },
+      "music_box": {
+        "file": "MusicBox_075_Sonata.mp3",
+        "loopStart": "0.749",
+        "loopEnd": "39.749"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Hypno K.K.",
+      "zh": "白日梦",
+      "jp": "うたたねのゆめ"
+    },
+    "coverImg": "Hypno K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_076_Utatanenoyume.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_076_Utatanenoyume.mp3",
+        "loopStart": "0.327",
+        "loopEnd": "68.61"
+      },
+      "music_box": {
+        "file": "MusicBox_076_Utatanenoyume.mp3",
+        "loopStart": "0",
+        "loopEnd": "64.137"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Stroll",
+      "zh": "散散步",
+      "jp": "おさんぽ"
+    },
+    "coverImg": "K.K. Stroll.jpg",
+    "song": {
+      "live": {
+        "file": "Live_077_Osanpo.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_077_Osanpo.mp3",
+        "loopStart": "4.715",
+        "loopEnd": "55.241"
+      },
+      "music_box": {
+        "file": "MusicBox_077_Osanpo.mp3",
+        "loopStart": "5.52",
+        "loopEnd": "65.683"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Island",
+      "zh": "动物岛",
+      "jp": "どうぶつのしま"
+    },
+    "coverImg": "K.K. Island.jpg",
+    "song": {
+      "live": {
+        "file": "Live_078_Doubutsunoshima.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_078_Doubutsunoshima.mp3",
+        "loopStart": "0.3",
+        "loopEnd": "33.69"
+      },
+      "music_box": {
+        "file": "MusicBox_078_Doubutsunoshima.mp3",
+        "loopStart": "0",
+        "loopEnd": "35.121"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Space K.K.",
+      "zh": "极简音乐",
+      "jp": "ミニマルおんがく"
+    },
+    "coverImg": "Space K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_079_Minimal.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_079_Minimal.mp3",
+        "loopStart": "0.29",
+        "loopEnd": "43.639"
+      },
+      "music_box": {
+        "file": "MusicBox_079_Minimal.mp3",
+        "loopStart": "3.333",
+        "loopEnd": "49.999"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Adventure",
+      "zh": "K.K.好莱坞",
+      "jp": "けけハリウッド"
+    },
+    "coverImg": "K.K. Adventure.jpg",
+    "song": {
+      "live": {
+        "file": "Live_080_Hollywood.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_080_Hollywood.mp3",
+        "loopStart": "3.673",
+        "loopEnd": "21.673"
+      },
+      "music_box": {
+        "file": "MusicBox_080_Hollywood.mp3",
+        "loopStart": "0",
+        "loopEnd": "34.286"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Oasis",
+      "zh": "K.K.印度王公",
+      "jp": "けけマハラジャ"
+    },
+    "coverImg": "K.K. Oasis.jpg",
+    "song": {
+      "live": {
+        "file": "Live_081_Maharaja.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_081_Maharaja.mp3",
+        "loopStart": "0.32",
+        "loopEnd": "41.182"
+      },
+      "music_box": {
+        "file": "MusicBox_081_Maharaja.mp3",
+        "loopStart": "0",
+        "loopEnd": "42.352"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Bazaar",
+      "zh": "K.K.吉普赛",
+      "jp": "けけロマ"
+    },
+    "coverImg": "K.K. Bazaar.jpg",
+    "song": {
+      "live": {
+        "file": "Live_082_Roma.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_082_Roma.mp3",
+        "loopStart": "2.99",
+        "loopEnd": "48.689"
+      },
+      "music_box": {
+        "file": "MusicBox_082_Roma.mp3",
+        "loopStart": "0",
+        "loopEnd": "36.923"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Milonga",
+      "zh": "K.K.米隆加",
+      "jp": "けけのミロンガ"
+    },
+    "coverImg": "K.K. Milonga.jpg",
+    "song": {
+      "live": {
+        "file": "Live_083_Milonga.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_083_Milonga.mp3",
+        "loopStart": "1.434",
+        "loopEnd": "44.634"
+      },
+      "music_box": {
+        "file": "MusicBox_083_Milonga.mp3",
+        "loopStart": "0",
+        "loopEnd": "47.999"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Groove",
+      "zh": "K.K.律动",
+      "jp": "けけグルーヴ"
+    },
+    "coverImg": "K.K. Groove.jpg",
+    "song": {
+      "live": {
+        "file": "Live_084_Raregroove.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_084_Raregroove.mp3",
+        "loopStart": "11.486",
+        "loopEnd": "52.341"
+      },
+      "music_box": {
+        "file": "MusicBox_084_Raregroove.mp3",
+        "loopStart": "0",
+        "loopEnd": "51.692"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Jongara",
+      "zh": "K.K.三味线",
+      "jp": "けけじょんがら"
+    },
+    "coverImg": "K.K. Jongara.jpg",
+    "song": {
+      "live": {
+        "file": "Live_085_Jongara.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_085_Jongara.mp3",
+        "loopStart": "3.225",
+        "loopEnd": "24.9"
+      },
+      "music_box": {
+        "file": "MusicBox_085_Jongara.mp3",
+        "loopStart": "0",
+        "loopEnd": "36"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Flamenco",
+      "zh": "K.K.佛朗明哥",
+      "jp": "けけフラメンコ"
+    },
+    "coverImg": "K.K. Flamenco.jpg",
+    "song": {
+      "live": {
+        "file": "Live_086_Flamenco.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_086_Flamenco.mp3",
+        "loopStart": "0.391",
+        "loopEnd": "21.985"
+      },
+      "music_box": {
+        "file": "MusicBox_086_Flamenco.mp3",
+        "loopStart": "4.564",
+        "loopEnd": "39.783"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Moody",
+      "zh": "K.K.波蕾洛",
+      "jp": "けけボレロ"
+    },
+    "coverImg": "K.K. Moody.jpg",
+    "song": {
+      "live": {
+        "file": "Live_087_Bolero.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_087_Bolero.mp3",
+        "loopStart": "2.162",
+        "loopEnd": "70.732"
+      },
+      "music_box": {
+        "file": "MusicBox_087_Bolero.mp3",
+        "loopStart": "2.769",
+        "loopEnd": "91.384"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Bubblegum K.K.",
+      "zh": "K.K.偶像",
+      "jp": "けけアイドル"
+    },
+    "coverImg": "Bubblegum K.K..jpg",
+    "song": {
+      "live": {
+        "file": "Live_088_Idol.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_088_Idol.mp3",
+        "loopStart": "4.84",
+        "loopEnd": "48.195"
+      },
+      "music_box": {
+        "file": "MusicBox_088_Idol.mp3",
+        "loopStart": "1.304",
+        "loopEnd": "74.349"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Synth",
+      "zh": "K.K.电子民谣",
+      "jp": "けけトロニカ"
+    },
+    "coverImg": "K.K. Synth.jpg",
+    "song": {
+      "live": {
+        "file": "Live_089_Electronica.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_089_Electronica.mp3",
+        "loopStart": "22.21",
+        "loopEnd": "76.21"
+      },
+      "music_box": {
+        "file": "MusicBox_089_Electronica.mp3",
+        "loopStart": "0",
+        "loopEnd": "50.704"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Disco",
+      "zh": "K.K.迪斯科",
+      "jp": "けけディスコ"
+    },
+    "coverImg": "K.K. Disco.jpg",
+    "song": {
+      "live": {
+        "file": "Live_090_Disco.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_090_Disco.mp3",
+        "loopStart": "0.762",
+        "loopEnd": "41.442"
+      },
+      "music_box": {
+        "file": "MusicBox_090_Disco.mp3",
+        "loopStart": "0",
+        "loopEnd": "63.529"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Birthday",
+      "zh": "你的生日",
+      "jp": "きみのたんじょうび"
+    },
+    "coverImg": "K.K. Birthday.jpg",
+    "song": {
+      "live": {
+        "file": "Live_091_Birthdaysong.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_091_Birthdaysong.mp3",
+        "loopStart": "18.286",
+        "loopEnd": "76.351"
+      },
+      "music_box": {
+        "file": "MusicBox_091_Birthdaysong.mp3",
+        "loopStart": "17.537",
+        "loopEnd": "100.646"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Animal City",
+      "zh": "动物城镇",
+      "jp": "どうぶつのまち"
+    },
+    "coverImg": "Animal City.jpg",
+    "song": {
+      "live": {
+        "file": "Live_092_Town.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_092_Town.mp3",
+        "loopStart": "2",
+        "loopEnd": "47"
+      },
+      "music_box": {
+        "file": "MusicBox_092_Town.mp3",
+        "loopStart": "3.282",
+        "loopEnd": "66.563"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Driving",
+      "zh": "兜风",
+      "jp": "ドライブ"
+    },
+    "coverImg": "Driving.jpg",
+    "song": {
+      "live": {
+        "file": "Live_093_Drive.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_093_Drive.mp3",
+        "loopStart": "0.13",
+        "loopEnd": "63.59"
+      },
+      "music_box": {
+        "file": "MusicBox_093_Drive.mp3",
+        "loopStart": "0",
+        "loopEnd": "46.829"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Farewell",
+      "zh": "再会",
+      "jp": "さよなら"
+    },
+    "coverImg": "Farewell.jpg",
+    "song": {
+      "live": {
+        "file": "Live_094_Sayonara.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_094_Sayonara.mp3",
+        "loopStart": "0",
+        "loopEnd": "80"
+      },
+      "music_box": {
+        "file": "MusicBox_094_Sayonara.mp3",
+        "loopStart": "0.5",
+        "loopEnd": "57.862"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Welcome Horizons",
+      "zh": "大家集合吧",
+      "jp": "みんなあつまれ"
+    },
+    "coverImg": "Welcome Horizons.jpg",
+    "song": {
+      "live": {
+        "file": "Live_095_Minnaatsumare.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_095_Minnaatsumare.mp3",
+        "loopStart": "9.227",
+        "loopEnd": "74.996"
+      },
+      "music_box": {
+        "file": "MusicBox_095_Minnaatsumare.mp3",
+        "loopStart": "6.857",
+        "loopEnd": "44.571"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Fugue",
+      "zh": "K.K.赋格曲",
+      "jp": "けけフーガ"
+    },
+    "coverImg": "K.K. Fugue.jpg",
+    "song": {
+      "live": {
+        "file": "Live_096_Fugue.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_096_Fugue.mp3",
+        "loopStart": "0",
+        "loopEnd": "36.923"
+      },
+      "music_box": {
+        "file": "MusicBox_096_Fugue.mp3",
+        "loopStart": "6",
+        "loopEnd": "66"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Polka",
+      "zh": "K.K.波尔卡舞曲",
+      "jp": "けけポルカ"
+    },
+    "coverImg": "K.K. Polka.jpg",
+    "song": {
+      "live": {
+        "file": "Live_097_Polka.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_097_Polka.mp3",
+        "loopStart": "0",
+        "loopEnd": "35.478"
+      },
+      "music_box": {
+        "file": "MusicBox_097_Polka.mp3",
+        "loopStart": "0",
+        "loopEnd": "51.428"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Slack-Key",
+      "zh": "K.K.Slack-Key吉他",
+      "jp": "けけスラッキー"
+    },
+    "coverImg": "K.K. Slack-Key.jpg",
+    "song": {
+      "live": {
+        "file": "Live_098_Slackkey.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_098_Slackkey.mp3",
+        "loopStart": "5.454",
+        "loopEnd": "54.545"
+      },
+      "music_box": {
+        "file": "MusicBox_098_Slackkey.mp3",
+        "loopStart": "0",
+        "loopEnd": "56.842"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Chorinho",
+      "zh": "K.K.咻乐",
+      "jp": "けけショーロ"
+    },
+    "coverImg": "K.K. Chorinho.jpg",
+    "song": {
+      "live": {
+        "file": "Live_099_Choro.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_099_Choro.mp3",
+        "loopStart": "0.599",
+        "loopEnd": "38.999"
+      },
+      "music_box": {
+        "file": "MusicBox_099_Choro.mp3",
+        "loopStart": "0",
+        "loopEnd": "45.714"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Chillwave",
+      "zh": "冷波",
+      "jp": "チルウェイヴ"
+    },
+    "coverImg": "Chillwave.jpg",
+    "song": {
+      "live": {
+        "file": "Live_100_Chillwave.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_100_Chillwave.mp3",
+        "loopStart": "6.857",
+        "loopEnd": "66.855"
+      },
+      "music_box": {
+        "file": "MusicBox_100_Chillwave.mp3",
+        "loopStart": "0",
+        "loopEnd": "40.799"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Dub",
+      "zh": "K.K.混搭音乐",
+      "jp": "けけダブ"
+    },
+    "coverImg": "K.K. Dub.jpg",
+    "song": {
+      "live": {
+        "file": "Live_101_Dub.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_101_Dub.mp3",
+        "loopStart": "0",
+        "loopEnd": "53.333"
+      },
+      "music_box": {
+        "file": "MusicBox_101_Dub.mp3",
+        "loopStart": "0",
+        "loopEnd": "35.555"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Lovers",
+      "zh": "K.K.爱人们",
+      "jp": "けけラヴァーズ"
+    },
+    "coverImg": "K.K. Lovers.jpg",
+    "song": {
+      "live": {
+        "file": "Live_102_Lovers.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_102_Lovers.mp3",
+        "loopStart": "6.153",
+        "loopEnd": "55.384"
+      },
+      "music_box": {
+        "file": "MusicBox_102_Lovers.mp3",
+        "loopStart": "0",
+        "loopEnd": "73.846"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Bashment",
+      "zh": "K.K.舞场雷鬼",
+      "jp": "けけバッシュメント"
+    },
+    "coverImg": "K.K. Bashment.jpg",
+    "song": {
+      "live": {
+        "file": "Live_103_Bashment.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_103_Bashment.mp3",
+        "loopStart": "0",
+        "loopEnd": "50.86"
+      },
+      "music_box": {
+        "file": "MusicBox_103_Bashment.mp3",
+        "loopStart": "0",
+        "loopEnd": "67.368"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Hop",
+      "zh": "K.K.嘻哈",
+      "jp": "けけホップ"
+    },
+    "coverImg": "K.K. Hop.jpg",
+    "song": {
+      "live": {
+        "file": "Live_104_Hiphop.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_104_Hiphop.mp3",
+        "loopStart": "5.333",
+        "loopEnd": "48"
+      },
+      "music_box": {
+        "file": "MusicBox_104_Hiphop.mp3",
+        "loopStart": "0",
+        "loopEnd": "33.118"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Break",
+      "zh": "K.K.地板舞",
+      "jp": "けけブレイク"
+    },
+    "coverImg": "K.K. Break.jpg",
+    "song": {
+      "live": {
+        "file": "Live_105_Break.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_105_Break.mp3",
+        "loopStart": "10.714",
+        "loopEnd": "53.571"
+      },
+      "music_box": {
+        "file": "MusicBox_105_Break.mp3",
+        "loopStart": "0",
+        "loopEnd": "32"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Khoomei",
+      "zh": "K.K.喉音",
+      "jp": "けけホーミー"
+    },
+    "coverImg": "K.K. Khoomei.jpg",
+    "song": {
+      "live": {
+        "file": "Live_106_Khoomii.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_106_Khoomii.mp3",
+        "loopStart": "20.864",
+        "loopEnd": "67.821"
+      },
+      "music_box": {
+        "file": "MusicBox_106_Khoomii.mp3",
+        "loopStart": "0",
+        "loopEnd": "35.997"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "K.K. Robot Synth",
+      "zh": "K.K.电子合成音",
+      "jp": "けけロイド"
+    },
+    "coverImg": "K.K. Robot Synth.jpg",
+    "song": {
+      "live": {
+        "file": "Live_107_Android.mp3"
+      },
+      "aircheck": {
+        "file": "Audio_107_Android.mp3",
+        "loopStart": "11.896",
+        "loopEnd": "61.551"
+      },
+      "music_box": {
+        "file": "MusicBox_107_Android.mp3",
+        "loopStart": "0",
+        "loopEnd": "33.104"
+      }
+    }
+  },
+  {
+    "name": {
+      "en": "Hazure01",
+      "zh": "Hazure01",
+      "jp": "Hazure01"
+    },
+    "coverImg": "",
+    "song": {
+      "live": {
+        "file": "Live_901_Hazure01.mp3"
+      }
+    },
+    "description": {
+      "en": "New hidden track",
+      "zh": "新的隐藏曲目",
+      "jp": "新しい隠しトラック"
+    }
+  },
+  {
+    "name": {
+      "en": "Hazure02",
+      "zh": "Hazure02",
+      "jp": "Hazure02"
+    },
+    "coverImg": "",
+    "song": {
+      "live": {
+        "file": "Live_902_Hazure02.mp3"
+      }
+    },
+    "description": {
+      "en": "New hidden track",
+      "zh": "新的隐藏曲目",
+      "jp": "新しい隠しトラック"
+    }
+  },
+  {
+    "name": {
+      "en": "Hazure03",
+      "zh": "Hazure03",
+      "jp": "Hazure03"
+    },
+    "coverImg": "",
+    "song": {
+      "live": {
+        "file": "Live_903_Hazure03.mp3"
+      }
+    },
+    "description": {
+      "en": "New hidden track",
+      "zh": "新的隐藏曲目",
+      "jp": "新しい隠しトラック"
+    }
+  }
+]

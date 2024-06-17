@@ -17,6 +17,7 @@ import { useMainStore } from '@/stores/mainStore'
 import { computed, onMounted, onUnmounted } from 'vue';
 import { getText } from '@/utils/i18n';
 
+
 const isShuffle = computed(() => {
   return useMainStore().isShuffle;
 });
@@ -59,7 +60,11 @@ const handleKeydown = (event) => {
 };
 
 onMounted(() => {
+  const store = useMainStore();
   window.addEventListener('keydown', handleKeydown);
+  if (localStorage.getItem('lang')) {
+    store.setLang(localStorage.getItem('lang'));
+  }
 });
 
 onUnmounted(() => {

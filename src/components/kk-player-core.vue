@@ -27,12 +27,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 import Player from '@/utils/player';
 import { useMainStore } from '@/stores/mainStore';
 import { getText } from '@/utils/i18n';
+import listData from '@/config/list.json';
 
-import { LIST_URL, SONGS_FILES_URL } from "@/config/config";
+import { SONGS_FILES_URL } from "@/config/config";
 
 const volumeMapping = [0, 0.33, 0.66, 1];
 
@@ -55,6 +56,17 @@ export default {
 
   created() {
     const store = useMainStore();
+
+    // 确保已设置音量和语言
+    if (!localStorage.getItem('volume')) {
+      localStorage.setItem('volume', 3);
+    }
+    if (!localStorage.getItem('lang')) {
+      localStorage.setItem('lang', 'zh');
+    } else {
+      this.lang = localStorage.getItem('lang');
+    }
+
     // 监听 store 中 selectedIndex 的变化,响应切歌
     this.$watch(() => store.selectedIndex, (newIndex) => {
       this.mainPlayerControl(newIndex);
@@ -95,13 +107,9 @@ export default {
     },
 
     // 获取播放总列表
-    async fetchPlayList() {
-      axios.get(LIST_URL).then(response => {
-        this.listData = response.data;
-        this.updateAlbumList();
-      }).catch(error => {
-        console.error('Error fetching CD list:', error);
-      })
+    fetchPlayList() {
+      this.listData = listData;
+      this.updateAlbumList();
     },
 
     // 更新可用的播放列表
@@ -172,8 +180,10 @@ export default {
 
     // 中断播放
     stopPlayer() {
+      if (this.player) {
+        this.player.stop();
+      }
       const store = useMainStore();
-      this.player.stop();
       store.setPlaying(false);
       store.setPlayingIndex(-1);
       store.setSelectedIndex(-1);
