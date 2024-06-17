@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="about-group">
-      <div></div>
+      <div class="dot"></div>
       <div class="about active icon button" :class="{ 'show-bubble': showBubble === 'about', }"
         @mouseover="showBubble = 'about'" @mouseout="showBubble = ''">
         <div class="bubble-text">{{ getText('about', lang) }}</div>
@@ -97,6 +97,8 @@ export default {
 
     // 切换播放模式
     toggleMode(mode) {
+      const store = useMainStore();
+      store.setShuffle(false);
       this.mode = mode;
       localStorage.setItem('mode', mode);
       this.updateAlbumList();
@@ -147,6 +149,7 @@ export default {
         this.player.addEventListener('audioEnded', () => {
           if (store.isShuffle) {
             const randomIndex = Math.floor(Math.random() * store.playList.length);
+            this.player.stop();
             store.setSelectedIndex(randomIndex);
           }
         });
@@ -220,6 +223,14 @@ export default {
   width: 35%;
 }
 
+.dot {
+  margin-left: 15px;
+  width: 2px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #95b5c4;
+}
+
 .icon {
   position: relative;
   display: flex;
@@ -239,12 +250,24 @@ export default {
   padding: 0.4vw 0.6vw;
 }
 
+@media screen and (max-width: 400px) {
+  .kk-player-core {
+    width: 170px;
+    height: 50px;
+    padding: 0 20px;
+  }
+}
+
 .icon.show-bubble .bubble-text {
   opacity: 1;
 }
 
 .icon:active {
   animation: button-click 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.05);
 }
 
 .live {

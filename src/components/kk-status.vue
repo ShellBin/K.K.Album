@@ -220,7 +220,7 @@ export default {
 
 @media screen and (max-width: 400px) {
   .status-text {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .icon-area {

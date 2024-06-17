@@ -35,7 +35,7 @@ const translations = {
         en: 'Hidden Track'
     },
     shuffle: {
-        zh: '随机',
+        zh: '打乱',
         jp: 'サフォ',
         en: 'Shuffle'
     },

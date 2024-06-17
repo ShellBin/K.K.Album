@@ -101,6 +101,7 @@ export default {
     // 切换气泡
     toggleActive() {
       const store = useMainStore();
+      store.setShuffle(false)
       if(store.selectedIndex === this.index) {
         store.setSelectedIndex(-1);
       } else {

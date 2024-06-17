@@ -33,10 +33,12 @@ const ready = computed(() => {
 const toggleShuffle = () => {
   const store = useMainStore();
   store.setShuffle(!store.isShuffle);
-  if (store.isShuffle) {
-    console.log('开始播放');
-  } else {
-    console.log('停止播放');
+  if (store.isShuffle && !store.isPlaying) {
+    const index = Math.floor(Math.random() * store.playList.length);
+    store.setSelectedIndex(index);
+  }
+  if (!store.isShuffle) {
+    store.setSelectedIndex(-1);
   }
 };
 
