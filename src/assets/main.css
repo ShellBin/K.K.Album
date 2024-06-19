@@ -4,11 +4,11 @@ body {
   user-select: none;
   font-family: '未来圆SC Regular', 思源黑体 CN Regular;
   /* normal cursor */
-  cursor: url('@/assets/img/public/cursor.png') 5 5, pointer;
+  cursor: url('@/assets/img/public/cursor-hover-frame.png') 5 5, pointer;
 }
 
 body:active {
-  cursor: url('@/assets/img/public/cursor-poke.png') 5 5, pointer;
+  cursor: url('@/assets/img/public/cursor-poke-frame.png') 5 5, pointer;
 }
 
 /* .button { } */

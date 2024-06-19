@@ -1,14 +1,17 @@
 <template>
+  <transition name="fade">
+    <KkModal v-if="modalDisplay" class="kk-modal-components" />
+  </transition>
   <Status class="status" />
   <KkPlayerCore class="kk-player-core" />
   <div class="main">
     <div class="container" ref="container">
+      <div class="kk-scrollbar-wrapper">
+        <KkScrollbar class="kk-scrollbar" />
+      </div>
       <CdAdd class="kk-cd-add" />
       <KkCd v-for="(cd, index) in cdList" :key="index" :config="{ name: cd.name, coverImg: cd.coverImg, index }"
         class="kk-cd" />
-    </div>
-    <div class="kk-scrollbar-wrapper">
-      <KkScrollbar class="kk-scrollbar" />
     </div>
   </div>
   <KkButtonGroup class="kk-button-group" />
@@ -26,6 +29,7 @@ import CdAdd from './components/kk-cdAdd.vue'
 import KkCd from './components/kk-cd.vue'
 import KkScrollbar from './components/kk-scrollbar.vue'
 import KkButtonGroup from './components/kk-button-group.vue'
+import KkModal from './components/kk-modal.vue'
 
 export default {
   components: {
@@ -35,12 +39,14 @@ export default {
     CdAdd,
     KkCd,
     KkScrollbar,
-    KkButtonGroup
+    KkButtonGroup,
+    KkModal
   },
   setup() {
     const store = useMainStore();
     const isPlaying = computed(() => store.isPlaying);
     const cdList = computed(() => store.playList);
+    const modalDisplay = computed(() => store.modalDisplay);
     const container = ref(null);
 
     const handleScroll = () => {
@@ -61,7 +67,8 @@ export default {
     return {
       isPlaying,
       cdList,
-      container
+      container,
+      modalDisplay
     }
   }
 }
@@ -76,13 +83,25 @@ export default {
   height: 100%;
 }
 
+.kk-modal-components {
+  z-index: 1000;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
 .kk-scrollbar-wrapper {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
-  right: -3vw;
+  right: calc(max(-28px, -3vw));
   width: 8px;
   height: 100vh;
   pointer-events: none;
@@ -90,6 +109,20 @@ export default {
 
 .kk-scrollbar {
   height: 60vh;
+  position: relative;
+}
+
+.kk-scrollbar::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url('@/assets/img/kk-scrollbar/icon-sticker.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .status {
@@ -167,14 +200,27 @@ export default {
 .kk-cd {
   color: white;
   width: 100%;
-  padding-top: 100%;
+  aspect-ratio: 1 / 1;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .container {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 
 @media (max-width: 600px) {
   .container {

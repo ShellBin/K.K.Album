@@ -1,5 +1,5 @@
 <template>
-  <div class="kk-status-container bg">
+  <div class="kk-status-container">
     <div class="kk-status-left">
       <div class="icon-area">
         <div v-if="!isShuffle" class="note icon" :class="{ note2: !isPlaying, bounce: isBouncing }"></div>
@@ -157,20 +157,43 @@ export default {
   align-items: center;
   justify-content: center;
   height: 50px;
-  background-image: url('@/assets/img/kk-status/status-bg.png');
-  width: 55vw;
+  width: 40vw;
+  background-color: #F5F7E1;
+  transform: translateX(50px);
+}
+
+.kk-status-container::before,
+.kk-status-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.kk-status-container::before {
+  left: -50px;
+  background-image: url('@/assets/img/kk-status/status-bg-left.png');
+}
+
+.kk-status-container::after {
+  right: -60px;
+  background-image: url('@/assets/img/kk-status/status-bg-right.png');
 }
 
 .kk-status-left {
   display: flex;
   align-items: center;
   position: absolute;
-  left: 3vw;
+  left: -1vw;
 }
 
 .volume-area {
   position: absolute;
-  right: 3vw;
+  right: -1vw;
 }
 
 
@@ -178,7 +201,14 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: 24px;
+  font-weight: 600;
   margin-left: 2vw;
+  margin-top: 5px;
+}
+
+.status-text span {
+  display: inline-block;
+  white-space: pre;
 }
 
 @media (max-width: 700px) {
@@ -187,7 +217,7 @@ export default {
   }
 
   .kk-status-container {
-    width: 80vw;
+    width: 65vw;
   }
 }
 

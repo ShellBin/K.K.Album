@@ -1,4 +1,9 @@
 const translations = {
+    add: {
+        zh: '添加',
+        jp: '追加',
+        en: 'Add'
+    },
     loading: {
         zh: '加载中...',
         jp: '読み込み中...',

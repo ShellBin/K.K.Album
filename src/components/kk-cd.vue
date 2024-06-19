@@ -72,7 +72,7 @@ export default {
         if (!coverImg) {
           this.isHiddenAlbum = true;
           const store = useMainStore();
-          const randomIndex = store.shiftRandomIndex();
+          const randomIndex = store.shiftRandomGroup();
           this.coverImgUrl = [defaultCover1, defaultCover2, defaultCover3, defaultCover4][randomIndex];
         } else {
           const encodedCoverImg = encodeURIComponent(coverImg).replace(/'/g, '%27');
@@ -192,9 +192,10 @@ export default {
 
 .bubble-text {
   background-image: url('@/assets/img/public/bubble.png');
-  top: -20px;
   font-size: 1.6rem;
+  font-weight: 700;
   padding: 1vw 2.1vw;
+  top: -10%;
 }
 
 .rectangle.show-bubble .bubble-text {
@@ -214,11 +215,10 @@ export default {
 .rectangle.golden-border::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
+  top: -1%;
+  left: -1%;
+  width: 102%;
+  height: 102%;
   box-sizing: border-box;
   background: url('@/assets/img/kk-cd/content-selection.png') center/cover no-repeat;
 }

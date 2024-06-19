@@ -18,8 +18,9 @@
     </div>
     <div class="about-group">
       <div class="dot"></div>
-      <div class="about active icon button" :class="{ 'show-bubble': showBubble === 'about', }"
-        @mouseover="showBubble = 'about'" @mouseout="showBubble = ''">
+      <div class="about icon button"
+        :class="{ active: showAbout, 'show-bubble': showBubble === 'about', }"
+        @mouseover="showBubble = 'about'" @mouseout="showBubble = ''" @click="toggleShowAbout">
         <div class="bubble-text">{{ getText('about', lang) }}</div>
       </div>
     </div>
@@ -46,6 +47,7 @@ export default {
       listData: [],
       player: null,
       showBubble: '',
+      showAbout: false,
     };
   },
 
@@ -63,9 +65,10 @@ export default {
     }
     if (!localStorage.getItem('lang')) {
       localStorage.setItem('lang', 'zh');
-    } else {
-      this.lang = localStorage.getItem('lang');
     }
+    store.setVolume(localStorage.getItem('volume'));
+    this.lang = localStorage.getItem('lang');
+    store.setLang(localStorage.getItem('lang'));
 
     // 监听 store 中 selectedIndex 的变化,响应切歌
     this.$watch(() => store.selectedIndex, (newIndex) => {
@@ -87,6 +90,11 @@ export default {
         store.setTrack(this.listData[store.playingIndex].name[store.lang]);
       }
     });
+
+    // 监听 store 中 modalDisplay 的变化
+    this.$watch(() => store.modalDisplay, (newModalDisplay) => {
+      this.showAbout = newModalDisplay === 'about';
+    });
   },
 
   methods: {
@@ -106,6 +114,12 @@ export default {
       if (mode === 'live') {
         this.createRandomGroup();
       }
+    },
+
+    // 弹出关于页面
+    toggleShowAbout() {
+      const store = useMainStore();
+      store.setModalDisplay('about');
     },
 
     // 获取播放总列表
@@ -202,7 +216,7 @@ export default {
   height: 50px;
   display: flex;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 20px;
   background-image: url('@/assets/img/kk-player-core/core_bg.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -213,14 +227,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: 70%;
 }
 
 .about-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 35%;
+  width: 30%;
 }
 
 .dot {

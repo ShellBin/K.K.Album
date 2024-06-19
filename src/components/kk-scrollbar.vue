@@ -49,11 +49,11 @@ const clampedScrollPercent = computed(() => {
 
 .kk-scrollbar-dot.top {
   position: absolute;
-  top: 0;
+  top: -1px;
 }
 
 .kk-scrollbar-dot.bottom {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
 }
 </style>

@@ -9,7 +9,7 @@ function createSetter(refValue) {
 }
 
 export const useMainStore = defineStore('main', () => {
-  const lang = ref('zh')
+  const lang = ref('')
   const isPlaying = ref(false)
   const isShuffle = ref(false)
   const playList = ref([])
@@ -19,6 +19,7 @@ export const useMainStore = defineStore('main', () => {
   const volume = ref(0)
   const randomGroup = ref([])
   const scrollPercent = ref(0)
+  const modalDisplay = ref('')
 
   // 使用通用的 setter 方法
   const setPlaying = createSetter(isPlaying)
@@ -29,8 +30,9 @@ export const useMainStore = defineStore('main', () => {
   const setTrack = createSetter(trackName)
   const setRandomGroup = createSetter(randomGroup)
   const setScrollPercent = createSetter(scrollPercent)
+  const setModalDisplay = createSetter(modalDisplay)
 
-  function shiftRandomIndex() {
+  function shiftRandomGroup() {
     return randomGroup.value.shift()
   }
 
@@ -45,7 +47,16 @@ export const useMainStore = defineStore('main', () => {
   }
 
   return {
-    lang, isPlaying, trackName, volume, isShuffle, selectedIndex, playingIndex, playList, randomGroup, scrollPercent,
-    setLang, setPlaying, setTrack, setVolume, setShuffle, setSelectedIndex, setPlayingIndex, setPlayList, setRandomGroup, shiftRandomIndex, setScrollPercent
+    lang, setLang,
+    isPlaying, setPlaying,
+    trackName, setTrack,
+    volume, setVolume,
+    isShuffle, setShuffle,
+    selectedIndex, setSelectedIndex,
+    playingIndex, setPlayingIndex,
+    playList, setPlayList,
+    randomGroup, setRandomGroup, shiftRandomGroup,
+    scrollPercent, setScrollPercent,
+    modalDisplay, setModalDisplay
   }
 })
