@@ -20,7 +20,7 @@
       <span class="hidden-album-title">{{ getText('hiddenTrack', lang) }}</span>
       <span class="hidden-album-desc">{{ trackName[lang] }}</span>
     </div>
-    <span class="bg bubble-text">{{ trackName[lang] }}</span>
+    <div class="bg bubble-text">{{ trackName[lang] }}</div>
   </div>
 </template>
 
@@ -144,6 +144,7 @@ export default {
 .rectangle {
   position: relative;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   transform: scale(0.98);

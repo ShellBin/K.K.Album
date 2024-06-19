@@ -123,6 +123,7 @@ export default {
   background-image: url('@/assets/img/kk-scrollbar/icon-sticker.png');
   background-size: contain;
   background-repeat: no-repeat;
+  z-index: 110;
 }
 
 .status {

@@ -270,6 +270,10 @@ export default {
     height: 50px;
     padding: 0 20px;
   }
+
+  .dot {
+    margin-left: 10px;
+  }
 }
 
 .icon.show-bubble .bubble-text {
