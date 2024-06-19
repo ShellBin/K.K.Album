@@ -2,8 +2,8 @@
   <transition name="fade">
     <KkModal v-if="modalDisplay" class="kk-modal-components" />
   </transition>
-  <Status class="status" />
-  <KkPlayerCore class="kk-player-core" />
+  <Status v-show="cdList.length > 0" class="status" />
+  <KkPlayerCore v-show="cdList.length > 0" class="kk-player-core" />
   <div class="main">
     <div class="container" ref="container">
       <div class="kk-scrollbar-wrapper">
@@ -14,7 +14,7 @@
         class="kk-cd" />
     </div>
   </div>
-  <KkButtonGroup class="kk-button-group" />
+  <KkButtonGroup v-show="cdList.length > 0" class="kk-button-group" />
   <Background class="background" />
 </template>
 
