@@ -64,7 +64,18 @@ export default {
       localStorage.setItem('volume', 3);
     }
     if (!localStorage.getItem('lang')) {
-      localStorage.setItem('lang', 'zh');
+      const userLang = navigator.language || navigator.userLanguage;
+      const supportedLangs = {
+        'zh': 'zh',
+        'zh-CN': 'zh',
+        'en': 'en',
+        'en-US': 'en',
+        'en-GB': 'en',
+        'ja': 'jp',
+        'ja-JP': 'jp'
+      };
+      const defaultLang = supportedLangs[userLang] || 'zh';
+      localStorage.setItem('lang', defaultLang);
     }
     store.setVolume(localStorage.getItem('volume'));
     this.lang = localStorage.getItem('lang');

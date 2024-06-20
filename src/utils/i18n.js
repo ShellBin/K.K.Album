@@ -53,6 +53,26 @@ const translations = {
         zh: '中文',
         jp: '日本語',
         en: 'English'
+    },
+    ok: {
+        zh: '确定',
+        jp: '確定',
+        en: 'OK'
+    },
+    back: {
+        zh: '返回',
+        jp: '戻る',
+        en: 'Back'
+    },
+    addTips: {
+        zh: '你没有可登录的曲目哦！',
+        jp: 'ログインできる曲がありません！',
+        en: 'You have no loginable tracks!'
+    },
+    aboutTitle: {
+        zh: 'K.K. Album 唱片点播界面',
+        jp: 'K.K. Album プレーヤー',
+        en: 'K.K. Album Player'
     }
 };
 

@@ -1,12 +1,12 @@
 <template>
   <div class="kk-button-group">
     <div class="kk-button button" @click="toggleShuffle">
-      <div class="kk-button-icon">A</div>
+      <div class="kk-button-icon" :style="{ backgroundImage: `url(${isShuffle ? loopIcon : shuffleIcon})` }"></div>
       <div v-if="!isShuffle" class="kk-button-text">{{ getText('shuffle', lang) }}</div>
       <div v-else class="kk-button-text">{{ getText('loop', lang) }}</div>
     </div>
     <div class="kk-button button" @click="toggleLanguage">
-      <div class="kk-button-icon">B</div>
+      <div class="kk-button-icon" :style="{ backgroundImage: `url(${langIcon})` }"></div>
       <div class="kk-button-text">{{ getText('language', lang) }}</div>
     </div>
   </div>
@@ -14,9 +14,11 @@
 
 <script setup>
 import { useMainStore } from '@/stores/mainStore'
-import { computed, onMounted, onUnmounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { getText } from '@/utils/i18n';
-
+import shuffleIcon from '@/assets/img/kk-button-group/shuffle.png';
+import loopIcon from '@/assets/img/kk-button-group/loop.png';
+import langIcon from '@/assets/img/kk-button-group/lang.png';
 
 const isShuffle = computed(() => {
   return useMainStore().isShuffle;
@@ -49,26 +51,12 @@ const toggleLanguage = () => {
   }
 };
 
-const handleKeydown = (event) => {
-  if (event.key === 'a' || event.key === 'A') {
-    toggleShuffle();
-  } else if (event.key === 'b' || event.key === 'B') {
-    toggleLanguage();
-  }
-};
-
 onMounted(() => {
   const store = useMainStore();
-  window.addEventListener('keydown', handleKeydown);
   if (localStorage.getItem('lang')) {
     store.setLang(localStorage.getItem('lang'));
   }
 });
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-});
-
 </script>
 
 <style scoped>
@@ -105,15 +93,10 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #887964;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
   width: 25px;
   height: 23px;
-  border-radius: 50%;
-  padding-top: 3px;
-  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .kk-button-text {

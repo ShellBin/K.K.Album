@@ -2,8 +2,40 @@
   <div class="kk-modal-wrapper">
     <div class="kk-modal-overlay"></div>
     <transition name="modal-pop">
-      <div v-show="showDialog" class="kk-modal" @click="setModalDisplay">
-        <slot></slot>
+      <div v-show="showDialog" class="kk-modal" :class="{
+        'kk-modal-normal': modalType !== 'about',
+        'kk-modal-about': modalType === 'about'
+      }">
+        <div v-if="modalType === 'cdAdd'" class="kk-modal-content cdadd">
+          <div style="margin-bottom: 20px;">{{ getText('addTips', lang) }}</div>
+          <div class="kk-modal-button-back kk-button" @click="setModalDisplay">
+            <div style="margin-top: 5px;">{{ getText('ok', lang) }}</div>
+          </div>
+        </div>
+        <div v-if="modalType === 'about'" class="kk-modal-content about">
+          <div class="kk-modal-content-title">{{ getText('aboutTitle', lang) }}</div>
+          <div class="kk-modal-content-text">
+            <div class="kk-quotes">
+              <span class="kk-quotes-text">“Nothing shredded, nothing gained.” </span>
+              <span class="kk-quotes-name">K.K. Slider</span>
+            </div>
+            <div class="contributions">
+              <div v-for="contribution in contributions" :key="contribution.name">
+                <img :src="contribution.avatar" alt="avatar" />
+                <span>{{ contribution.desc }}</span>
+              </div>
+            </div>
+          </div>
+          <img class="kk-modal-button-sub kk-button share"
+            src="@/assets/img/kk-modal/button-share.png"
+            alt="share Button" />
+          <div class="kk-modal-button-back kk-button" @click="setModalDisplay">
+            <div style="margin-top: 5px;">{{ getText('back', lang) }}</div>
+          </div>
+            <img class="kk-modal-button-sub kk-button github"
+            src="@/assets/img/kk-modal/button-github.png"
+            alt="GitHub Button" @click="openGithub" />
+        </div>
       </div>
     </transition>
   </div>
@@ -12,10 +44,31 @@
 <script setup>
 import { useMainStore } from '@/stores/mainStore'
 import { computed, ref, onMounted } from 'vue'
+import { getText } from '@/utils/i18n';
+
+import shellbinAvatar from '@/assets/img/kk-modal/avatar/shellbin.png';
+import rokuAvatar from '@/assets/img/kk-modal/avatar/roku.png';
+import harutonoAvatar from '@/assets/img/kk-modal/avatar/harutono.png';
+
 
 const store = useMainStore();
 const isModalVisible = computed(() => store.modalDisplay !== '');
+const modalType = computed(() => store.modalDisplay);
+const lang = computed(() => store.lang);
 const showDialog = ref(false);
+
+const contributions = ref([
+  { name: 'ShellBin', url: 'https://shellbin.me', avatar: shellbinAvatar , desc: 'ShellBin'},
+  { name: 'Roku', url: 'https://kazamihatsuroku.top/', avatar: rokuAvatar, desc: 'Roku'},
+  { name: 'Harutono', url: 'https://tonoko.moe/anna/', avatar: harutonoAvatar, desc: 'Harutono'},
+]);
+const githubURL = 'https://github.com/ShellBin/K.K.Album/';
+const pageURL = 'https://kk-album.shellbin.me/';
+
+function openGithub() {
+  window.open(githubURL, '_blank');
+}
+
 
 function setModalDisplay() {
   store.setModalDisplay('');
@@ -55,11 +108,105 @@ onMounted(() => {
 }
 
 .kk-modal {
-  width: 600px;
-  height: 50vh;
+  margin: 0 5vw;
+  width: max(60vw, 900px);
+  max-width: 900px;
+  aspect-ratio: 1.7 / 1;
+  color: #837055;
+  display: flex;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.kk-modal-normal {
   background: url('@/assets/img/kk-modal/content-bubble.png') no-repeat;
   background-size: 100% 100%;
-  z-index: 1200;
+}
+
+.kk-modal-about {
+  background: url('@/assets/img/kk-modal/content-bubble-with-header.png') no-repeat;
+  background-size: 100% 100%;
+}
+
+.kk-modal-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.cdadd {
+  font-size: min(4vw, 30px);
+}
+
+.kk-modal-content-title {
+  position: absolute;
+  color: #4E754B;
+  font-size: min(4vw, 30px);
+  border-radius: 50%;
+  top: 8%;
+}
+
+.kk-quotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #C6B297;
+}
+
+.kk-quotes-text {
+  font-size: min(3vw, 22.5px);
+}
+
+.kk-quotes-name {
+  font-size: min(2vw, 15px);
+  font-weight: 200
+}
+
+.contributions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.kk-modal-button-back {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('@/assets/img/kk-modal/button-ok.png') no-repeat;
+  color: #DAFFF5;
+  background-size: 100% 100%;
+  bottom: 10%;
+  width: min(40vw, 400px);
+  height: min(10vw, 100px);
+  font-size: min(4vw, 30px);
+}
+
+.kk-modal-button-sub {
+  position: absolute;
+  bottom: 10%;
+  height: min(10vw, 100px);
+}
+
+.share {
+  left: 9%;
+}
+
+.github {
+  right: 9%;
+}
+
+.kk-button {
+  transition: transform 0.2s ease;
+}
+
+.kk-button:hover {
+  transform: scale(1.05);
 }
 
 .modal-pop-enter-active, .modal-pop-leave-active {
@@ -75,7 +222,7 @@ onMounted(() => {
 }
 
 .modal-pop-leave-from {
-  transform: scale(1);
+  transform: scale(1.05);
 }
 
 .modal-pop-leave-to {
