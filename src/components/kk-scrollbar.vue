@@ -14,7 +14,7 @@ const store = useMainStore();
 
 const scrollPercent = computed(() => store.scrollPercent);
 const clampedScrollPercent = computed(() => {
-  return Math.min(93, Math.max(0, scrollPercent.value));
+  return Math.min(94, Math.max(0, scrollPercent.value));
 });
 </script>
 

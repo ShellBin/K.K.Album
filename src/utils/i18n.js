@@ -73,6 +73,11 @@ const translations = {
         zh: 'K.K. Album 唱片点播界面',
         jp: 'K.K. Album プレーヤー',
         en: 'K.K. Album Player'
+    },
+    shareTips: {
+        zh: '链接已复制，分享给好朋友吧~',
+        jp: 'リンクをコピーしました！友達に共有してみてください！',
+        en: 'Link copied, share it with your friends!'
     }
 };
 

@@ -20,21 +20,26 @@
               <span class="kk-quotes-name">K.K. Slider</span>
             </div>
             <div class="contributions">
-              <div v-for="contribution in contributions" :key="contribution.name">
-                <img :src="contribution.avatar" alt="avatar" />
-                <span>{{ contribution.desc }}</span>
+              <div v-for="author in contributions"
+                :key="author.name" class="author kk-button"
+                :class="{ online: author.online }"
+                @click="openLink(author.url)">
+                <img class="avatar" :src="author.avatar" alt="avatar" />
+                <span class="name">{{ author.name }}</span>
+                <span class="desc">{{ author.desc }}</span>
               </div>
             </div>
           </div>
           <img class="kk-modal-button-sub kk-button share"
             src="@/assets/img/kk-modal/button-share.png"
-            alt="share Button" />
+            alt="share Button"
+            @click="copyLink(pageURL)" />
           <div class="kk-modal-button-back kk-button" @click="setModalDisplay">
             <div style="margin-top: 5px;">{{ getText('back', lang) }}</div>
           </div>
             <img class="kk-modal-button-sub kk-button github"
             src="@/assets/img/kk-modal/button-github.png"
-            alt="GitHub Button" @click="openGithub" />
+            alt="GitHub Button" @click="openLink(githubURL)" />
         </div>
       </div>
     </transition>
@@ -58,17 +63,20 @@ const lang = computed(() => store.lang);
 const showDialog = ref(false);
 
 const contributions = ref([
-  { name: 'ShellBin', url: 'https://shellbin.me', avatar: shellbinAvatar , desc: 'ShellBin'},
-  { name: 'Roku', url: 'https://kazamihatsuroku.top/', avatar: rokuAvatar, desc: 'Roku'},
-  { name: 'Harutono', url: 'https://tonoko.moe/anna/', avatar: harutonoAvatar, desc: 'Harutono'},
+  { name: 'ShellBin', url: 'https://shellbin.me', avatar: shellbinAvatar , desc: 'Cooode!', online: true},
+  { name: 'Roku', url: 'https://kazamihatsuroku.top/', avatar: rokuAvatar, desc: 'Nurrrturing!', online: false},
+  { name: 'Harutono', url: 'https://tonoko.moe/anna/', avatar: harutonoAvatar, desc: 'Figggma!', online: true},
 ]);
 const githubURL = 'https://github.com/ShellBin/K.K.Album/';
 const pageURL = 'https://kk-album.shellbin.me/';
 
-function openGithub() {
-  window.open(githubURL, '_blank');
+function openLink(url) {
+  window.open(url, '_blank');
 }
 
+function copyLink(url) {
+  navigator.clipboard.writeText(url);
+}
 
 function setModalDisplay() {
   store.setModalDisplay('');
@@ -111,7 +119,6 @@ onMounted(() => {
   margin: 0 5vw;
   width: max(60vw, 900px);
   max-width: 900px;
-  aspect-ratio: 1.7 / 1;
   color: #837055;
   display: flex;
   justify-content: center;
@@ -119,11 +126,13 @@ onMounted(() => {
 }
 
 .kk-modal-normal {
+  aspect-ratio: 1.7 / 1;
   background: url('@/assets/img/kk-modal/content-bubble.png') no-repeat;
   background-size: 100% 100%;
 }
 
 .kk-modal-about {
+  aspect-ratio: 1.5 / 1;
   background: url('@/assets/img/kk-modal/content-bubble-with-header.png') no-repeat;
   background-size: 100% 100%;
 }
@@ -151,6 +160,13 @@ onMounted(() => {
   top: 8%;
 }
 
+.kk-modal-content-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
 .kk-quotes {
   display: flex;
   flex-direction: column;
@@ -171,6 +187,44 @@ onMounted(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  margin: 5% 0 3% 0;
+  width: min(40vw, 400px);
+  max-width: 425px;
+}
+
+.author {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: min(10vw, 100px);
+  border-radius: 50%;
+}
+
+.online::after {
+  content: '';
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  width: min(2vw, 15px);
+  height: min(2vw, 15px);
+  border-radius: 50%;
+  border: min(0.6vw, 4px) solid #fefae4;
+  background-color: #50b163;
+  z-index: 10;
+}
+
+.name {
+  margin-top: 10%;
+  font-size: min(3vw, 22.5px);
+}
+
+.desc {
+  font-size: min(2vw, 15px);
 }
 
 .kk-modal-button-back {
