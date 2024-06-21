@@ -263,7 +263,7 @@ export default {
   align-items: center;
   width: 30px;
   height: 30px;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: transform 0.2s ease;
 }

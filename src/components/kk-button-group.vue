@@ -104,6 +104,7 @@ onMounted(() => {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
+  margin: 0 8px;
   padding-top: 3px;
 }
 </style>

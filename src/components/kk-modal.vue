@@ -1,6 +1,6 @@
 <template>
   <div class="kk-modal-wrapper">
-    <div class="kk-modal-overlay"></div>
+    <div class="kk-modal-overlay" @click="setModalDisplay"></div>
     <transition name="modal-pop">
       <div v-show="showDialog" class="kk-modal" :class="{
         'kk-modal-normal': modalType !== 'about',
@@ -30,6 +30,13 @@
               </div>
             </div>
           </div>
+          <transition name="notification-pop">
+            <div class="kk-notification" v-show="showNotification">
+              <div class="kk-notification-content">
+                <span>{{ getText('shareTips', lang) }}</span>
+              </div>
+            </div>
+          </transition>
           <img class="kk-modal-button-sub kk-button share"
             src="@/assets/img/kk-modal/button-share.png"
             alt="share Button"
@@ -61,6 +68,7 @@ const isModalVisible = computed(() => store.modalDisplay !== '');
 const modalType = computed(() => store.modalDisplay);
 const lang = computed(() => store.lang);
 const showDialog = ref(false);
+const showNotification = ref(false);
 
 const contributions = ref([
   { name: 'ShellBin', url: 'https://shellbin.me', avatar: shellbinAvatar , desc: 'Cooode!', online: true},
@@ -76,6 +84,10 @@ function openLink(url) {
 
 function copyLink(url) {
   navigator.clipboard.writeText(url);
+  showNotification.value = true;
+  setTimeout(() => {
+    showNotification.value = false;
+  }, 3000);
 }
 
 function setModalDisplay() {
@@ -253,6 +265,59 @@ onMounted(() => {
 
 .github {
   right: 9%;
+}
+
+.kk-notification {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -15%;
+  width: min(60vw, 600px);
+  background: url('@/assets/img/kk-modal/share-tip.png') no-repeat;
+  background-size: 100% 100%;
+  color: #837055;
+  font-size: min(3vw, 22.5px);
+  font-weight: bold;
+  animation: notification-pop 0.5s ease-in-out;
+}
+
+@keyframes notification-pop-enter {
+  0% {
+    transform: rotate(-15deg) translateY(-20px);
+    opacity: 0;
+    transform-origin: left top;
+  }
+  100% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 1;
+    transform-origin: left top;
+  }
+}
+
+@keyframes notification-pop-leave {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+    transform-origin: left top;
+  }
+  100% {
+    transform: rotate(-90deg);
+    opacity: 0;
+    transform-origin: left top;
+  }
+}
+
+.notification-pop-enter-active {
+  animation: notification-pop-enter 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.notification-pop-leave-active {
+  animation: notification-pop-leave 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.kk-notification-content {
+  margin: min(5vw, 50px) min(5vw, 50px) min(2vw, 20px ) min(5vw, 50px);
 }
 
 .kk-button {
