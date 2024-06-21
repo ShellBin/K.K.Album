@@ -272,7 +272,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: -15%;
+  bottom: -18%;
   width: min(60vw, 600px);
   background: url('@/assets/img/kk-modal/share-tip.png') no-repeat;
   background-size: 100% 100%;

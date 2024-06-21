@@ -180,7 +180,7 @@ export default {
 }
 
 .kk-status-container::after {
-  right: -60px;
+  right: -59px;
   background-image: url('@/assets/img/kk-status/status-bg-right.png');
 }
 
