@@ -25,8 +25,8 @@ const translations = {
         en: 'Music Box'
     },
     cd: {
-        zh: 'CD版',
-        jp: 'CD版',
+        zh: 'CD 版',
+        jp: 'CD 版',
         en: 'CD Version'
     },
     about: {
