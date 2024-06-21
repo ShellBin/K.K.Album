@@ -8,7 +8,7 @@ A music on-demand interface designed to restore the Animal Crossing: New Horizon
 
 > **🐕 在线体验**：https://kk-album.shellbin.me/
 
-- 包含游戏内 xx 首曲目，涵盖 K.K. 演唱、音乐盒、CD 三个版本；
+- 包含游戏内 107 首曲目和 3 首K.K. 演唱的隐藏曲目，涵盖 K.K. 演唱、音乐盒、CD 三个版本；
 - 支持 简体中文、English、日本語 三种界面语言；
 - 支持移动端与桌面端的响应式布局；
 
@@ -22,34 +22,26 @@ A music on-demand interface designed to restore the Animal Crossing: New Horizon
 > 感谢您的理解和支持。
 
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
 ## Project Setup
 
 ```sh
-npm install
+yarn
 ```
 
 ### Compile and Hot-Reload for Development
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 ### Compile and Minify for Production
 
 ```sh
-npm run build
+yarn build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
-npm run lint
+yarn lint
 ```
