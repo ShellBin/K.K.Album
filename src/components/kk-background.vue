@@ -76,7 +76,7 @@ export default {
 
 .wave {
   position: absolute;
-  bottom: 0;
+  bottom: 15%;
   width: 100%;
   animation: move 10s linear infinite;
   animation-fill-mode: both;
@@ -92,9 +92,18 @@ export default {
 }
 
 .wave3 {
-  bottom: 10%;
+  bottom: 35%;
   animation-duration: 15s;
   animation-direction: reverse;
+}
+
+@media screen and (max-width: 700px) {
+  .wave {
+    bottom: 0 !important;
+  }
+  .wave3 {
+    bottom: 10% !important;
+  }
 }
 
 .stopped-wave {

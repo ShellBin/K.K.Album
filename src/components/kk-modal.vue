@@ -22,9 +22,9 @@
             <div class="contributions">
               <div v-for="author in contributions"
                 :key="author.name" class="author kk-button"
-                :class="{ online: author.online }"
                 @click="openLink(author.url)">
-                <img class="avatar" :src="author.avatar" alt="avatar" />
+                <div class="avatar" :class="{ online: author.online }">
+                  <img class="avatar" :src="author.avatar" alt="avatar" /></div>
                 <span class="name">{{ author.name }}</span>
                 <span class="desc">{{ author.desc }}</span>
               </div>
@@ -213,7 +213,7 @@ onMounted(() => {
 }
 
 .avatar {
-  width: min(10vw, 100px);
+  width: min(11vw, 110px);
   border-radius: 50%;
 }
 
@@ -231,8 +231,8 @@ onMounted(() => {
 }
 
 .name {
-  margin-top: 10%;
-  font-size: min(3vw, 22.5px);
+  margin-top: 6%;
+  font-size: min(2.8vw, 22.5px);
 }
 
 .desc {
@@ -280,6 +280,19 @@ onMounted(() => {
   font-size: min(3vw, 22.5px);
   font-weight: bold;
   animation: notification-pop 0.5s ease-in-out;
+  z-index: 1500;
+}
+
+@media screen and (max-height: 880px) {
+  .kk-notification {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .kk-modal {
+    transform: scale(0.8);
+  }
 }
 
 @keyframes notification-pop-enter {
@@ -302,7 +315,7 @@ onMounted(() => {
     transform-origin: left top;
   }
   100% {
-    transform: rotate(-90deg);
+    transform: rotate(-30deg);
     opacity: 0;
     transform-origin: left top;
   }
