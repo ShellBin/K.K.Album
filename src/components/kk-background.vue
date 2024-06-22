@@ -76,7 +76,7 @@ export default {
 
 .wave {
   position: absolute;
-  bottom: 15%;
+  bottom: 5%;
   width: 100%;
   animation: move 10s linear infinite;
   animation-fill-mode: both;
@@ -92,7 +92,7 @@ export default {
 }
 
 .wave3 {
-  bottom: 35%;
+  bottom: 25%;
   animation-duration: 15s;
   animation-direction: reverse;
 }
